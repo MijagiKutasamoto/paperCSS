@@ -704,71 +704,230 @@ document.getElementById('themeToggle').addEventListener('click', () => {
       
       <div class="grid cols-1 gap-6">
         <!-- Skeleton Loading -->
-        <div class="card" data-reveal="slide-left">
-          <h3>Skeleton Loading</h3>
-          <div id="skeleton-demo" class="mb-4">
-            <p>To jest normalna treść z tekstem i obrazami.</p>
-            <div style="width: 60px; height: 60px; background: var(--paper-accent); border-radius: 50%; margin: 1rem 0;"></div>
-            <p>Więcej treści do ukrycia za skeleton.</p>
+        <div class="demo-component" data-reveal="slide-left">
+          <div class="demo-header">
+            <h3 class="demo-title">Skeleton Loading</h3>
+            <button class="code-hint-btn" data-open-label="{ } Pokaż kod" data-close-label="✕ Ukryj kod" onclick="toggleCodeHint(this)">{ } Pokaż kod</button>
           </div>
-          <div class="flex gap-2">
-            <button class="btn btn-primary" onclick="PaperSkeleton.show('#skeleton-demo')">Pokaż skeleton</button>
-            <button class="btn btn-secondary" onclick="PaperSkeleton.hide('#skeleton-demo')">Ukryj skeleton</button>
+          
+          <div class="card">
+            <div id="skeleton-demo" class="mb-4">
+              <p>To jest normalna treść z tekstem i obrazami.</p>
+              <div style="width: 60px; height: 60px; background: var(--paper-accent); border-radius: 50%; margin: 1rem 0;"></div>
+              <p>Więcej treści do ukrycia za skeleton.</p>
+            </div>
+            <div class="flex gap-2">
+              <button class="btn btn-primary" onclick="PaperSkeleton.show('#skeleton-demo')">Pokaż skeleton</button>
+              <button class="btn btn-secondary" onclick="PaperSkeleton.hide('#skeleton-demo')">Ukryj skeleton</button>
+            </div>
+          </div>
+          
+          <div class="code-hint">
+            <div class="code-hint-title">💡 Skeleton Loading - przykład użycia:</div>
+            <pre><code>&lt;!-- HTML - kontener z treścią --&gt;
+&lt;div id="content-demo"&gt;
+  &lt;p&gt;Treść do ukrycia za skeleton&lt;/p&gt;
+  &lt;div class="user-avatar"&gt;&lt;/div&gt;
+  &lt;p&gt;Więcej zawartości&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- Przyciski sterujące --&gt;
+&lt;button onclick="PaperSkeleton.show('#content-demo')"&gt;
+  Pokaż skeleton
+&lt;/button&gt;
+&lt;button onclick="PaperSkeleton.hide('#content-demo')"&gt;
+  Ukryj skeleton
+&lt;/button&gt;
+
+&lt;!-- JavaScript API --&gt;
+&lt;script&gt;
+// Pokaż skeleton na elemencie
+PaperSkeleton.show('#content-demo');
+
+// Ukryj skeleton i przywróć zawartość
+PaperSkeleton.hide('#content-demo');
+
+// Automatyczne ukrycie po czasie
+setTimeout(() =&gt; PaperSkeleton.hide('#content-demo'), 3000);
+&lt;/script&gt;</code></pre>
           </div>
         </div>
 
         <!-- Offcanvas Panel -->
-        <div class="card" data-reveal="slide-right">
-          <h3>Offcanvas Panel</h3>
-          <p>Panel wysuwany z boku ekranu z animacją i blokadą scrolla.</p>
-          <button class="btn btn-primary" data-open-offcanvas="demo-offcanvas">Otwórz panel</button>
+        <div class="demo-component" data-reveal="slide-right">
+          <div class="demo-header">
+            <h3 class="demo-title">Offcanvas Panel</h3>
+            <button class="code-hint-btn" data-open-label="{ } Pokaż kod" data-close-label="✕ Ukryj kod" onclick="toggleCodeHint(this)">{ } Pokaż kod</button>
+          </div>
+          
+          <div class="card">
+            <p>Panel wysuwany z boku ekranu z animacją i blokadą scrolla.</p>
+            <button class="btn btn-primary" data-open-offcanvas="demo-offcanvas">Otwórz panel</button>
+          </div>
+          
+          <div class="code-hint">
+            <div class="code-hint-title">💡 Offcanvas Panel - przykład użycia:</div>
+            <pre><code>&lt;!-- Przycisk otwierający panel --&gt;
+&lt;button class="btn btn-primary" data-open-offcanvas="demo-offcanvas"&gt;
+  Otwórz panel
+&lt;/button&gt;
+
+&lt;!-- Struktura panelu offcanvas --&gt;
+&lt;div class="offcanvas-backdrop" id="demo-offcanvas-backdrop"&gt;
+  &lt;div class="offcanvas" id="demo-offcanvas"&gt;
+    &lt;div class="offcanvas-header"&gt;
+      &lt;h3&gt;Tytuł panelu&lt;/h3&gt;
+      &lt;button class="offcanvas-close btn-ghost"&gt;&amp;times;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="offcanvas-body"&gt;
+      &lt;p&gt;Zawartość panelu bocznego&lt;/p&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Opcja 1&lt;/li&gt;
+        &lt;li&gt;Opcja 2&lt;/li&gt;
+        &lt;li&gt;Opcja 3&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;div class="mt-4"&gt;
+        &lt;button class="btn btn-primary"&gt;Zapisz&lt;/button&gt;
+        &lt;button class="btn btn-outline"&gt;Anuluj&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- JavaScript - automatyczne działanie z data-open-offcanvas --&gt;</code></pre>
+          </div>
         </div>
 
         <!-- Dropdown Menu -->
-        <div class="card" data-reveal="zoom-in">
-          <h3>Dropdown Menu</h3>
-          <p>Menu rozwijane z obsługą klawiatury i animacjami.</p>
-          <div class="dropdown">
-            <button class="btn btn-secondary" data-dropdown-toggle>
-              Menu opcji ▼
-            </button>
-            <ul class="dropdown-menu">
-              <li><a href="#" class="dropdown-item">⚙️ Ustawienia</a></li>
-              <li><a href="#" class="dropdown-item">👤 Profil</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a href="#" class="dropdown-item">🚪 Wyloguj</a></li>
-            </ul>
+        <div class="demo-component" data-reveal="zoom-in">
+          <div class="demo-header">
+            <h3 class="demo-title">Dropdown Menu</h3>
+            <button class="code-hint-btn" data-open-label="{ } Pokaż kod" data-close-label="✕ Ukryj kod" onclick="toggleCodeHint(this)">{ } Pokaż kod</button>
+          </div>
+          
+          <div class="card">
+            <p>Menu rozwijane z obsługą klawiatury i animacjami.</p>
+            <div class="dropdown">
+              <button class="btn btn-secondary" data-dropdown-toggle>
+                Menu opcji ▼
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="#" class="dropdown-item">⚙️ Ustawienia</a></li>
+                <li><a href="#" class="dropdown-item">👤 Profil</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a href="#" class="dropdown-item">🚪 Wyloguj</a></li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="code-hint">
+            <div class="code-hint-title">💡 Dropdown Menu - przykład użycia:</div>
+            <pre><code>&lt;!-- Dropdown z przyciskiem i menu --&gt;
+&lt;div class="dropdown"&gt;
+  &lt;button class="btn btn-secondary" data-dropdown-toggle&gt;
+    Menu opcji ▼
+  &lt;/button&gt;
+  &lt;ul class="dropdown-menu"&gt;
+    &lt;li&gt;&lt;a href="#" class="dropdown-item"&gt;⚙️ Ustawienia&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#" class="dropdown-item"&gt;👤 Profil&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;hr class="dropdown-divider"&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#" class="dropdown-item"&gt;🚪 Wyloguj&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;!-- Różne style przycisków --&gt;
+&lt;div class="dropdown"&gt;
+  &lt;button class="btn btn-outline" data-dropdown-toggle&gt;
+    Więcej ⋯
+  &lt;/button&gt;
+  &lt;ul class="dropdown-menu"&gt;
+    &lt;li&gt;&lt;a href="#" class="dropdown-item"&gt;Edytuj&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#" class="dropdown-item"&gt;Usuń&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;!-- Automatyczna obsługa przez data-dropdown-toggle --&gt;</code></pre>
           </div>
         </div>
 
         <!-- Chip/Tag System -->
-        <div class="card" data-reveal="tilt">
-          <h3>Chip/Tag System</h3>
-          <p>Interaktywne tagi z możliwością usuwania i różnymi stylami.</p>
-          <div class="chip-group mb-3">
-            <div class="chip">
-              <span>React</span>
-              <button class="chip-close">&times;</button>
+        <div class="demo-component" data-reveal="tilt">
+          <div class="demo-header">
+            <h3 class="demo-title">Chip/Tag System</h3>
+            <button class="code-hint-btn" data-open-label="{ } Pokaż kod" data-close-label="✕ Ukryj kod" onclick="toggleCodeHint(this)">{ } Pokaż kod</button>
+          </div>
+          
+          <div class="card">
+            <p>Interaktywne tagi z możliwością usuwania i różnymi stylami.</p>
+            <div class="chip-group mb-3">
+              <div class="chip">
+                <span>React</span>
+                <button class="chip-close">&times;</button>
+              </div>
+              <div class="chip chip-outlined">
+                <span>JavaScript</span>
+                <button class="chip-close">&times;</button>
+              </div>
+              <div class="chip chip-small">
+                <span>CSS</span>
+                <button class="chip-close">&times;</button>
+              </div>
+              <div class="chip chip-outlined chip-small">
+                <span>HTML</span>
+                <button class="chip-close">&times;</button>
+              </div>
             </div>
-            <div class="chip chip-outlined">
-              <span>JavaScript</span>
-              <button class="chip-close">&times;</button>
-            </div>
-            <div class="chip chip-small">
-              <span>CSS</span>
-              <button class="chip-close">&times;</button>
-            </div>
-            <div class="chip chip-outlined chip-small">
-              <span>HTML</span>
-              <button class="chip-close">&times;</button>
-            </div>
+          </div>
+          
+          <div class="code-hint">
+            <div class="code-hint-title">💡 Chip/Tag System - przykład użycia:</div>
+            <pre><code>&lt;!-- Grupa tagów/chipów --&gt;
+&lt;div class="chip-group"&gt;
+  &lt;!-- Podstawowy chip --&gt;
+  &lt;div class="chip"&gt;
+    &lt;span&gt;React&lt;/span&gt;
+    &lt;button class="chip-close"&gt;&amp;times;&lt;/button&gt;
+  &lt;/div&gt;
+  
+  &lt;!-- Chip z obramowaniem --&gt;
+  &lt;div class="chip chip-outlined"&gt;
+    &lt;span&gt;JavaScript&lt;/span&gt;
+    &lt;button class="chip-close"&gt;&amp;times;&lt;/button&gt;
+  &lt;/div&gt;
+  
+  &lt;!-- Mały chip --&gt;
+  &lt;div class="chip chip-small"&gt;
+    &lt;span&gt;CSS&lt;/span&gt;
+    &lt;button class="chip-close"&gt;&amp;times;&lt;/button&gt;
+  &lt;/div&gt;
+  
+  &lt;!-- Chip bez przycisku zamknij --&gt;
+  &lt;div class="chip"&gt;
+    &lt;span&gt;HTML&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- JavaScript dla usuwania chipów --&gt;
+&lt;script&gt;
+// Automatyczne usuwanie chipów po kliknięciu .chip-close
+document.addEventListener('click', (e) =&gt; {
+  if (e.target.classList.contains('chip-close')) {
+    e.target.closest('.chip').remove();
+  }
+});
+&lt;/script&gt;</code></pre>
           </div>
         </div>
 
         <!-- Progress Bars -->
-        <div class="card" data-reveal="fade-up">
-          <h3>Progress Bars</h3>
-          <p>Paski postępu z animowanym wypełnianiem i różnymi stylami.</p>
+        <div class="demo-component" data-reveal="fade-up">
+          <div class="demo-header">
+            <h3 class="demo-title">Progress Bars</h3>
+            <button class="code-hint-btn" data-open-label="{ } Pokaż kod" data-close-label="✕ Ukryj kod" onclick="toggleCodeHint(this)">{ } Pokaż kod</button>
+          </div>
+          
+          <div class="card">
+            <p>Paski postępu z animowanym wypełnianiem i różnymi stylami.</p>
           
           <div class="mb-4">
             <h4 class="mb-3">Podstawowe paski postępu</h4>
@@ -867,6 +1026,54 @@ document.getElementById('themeToggle').addEventListener('click', () => {
             <button class="btn btn-danger" onclick="PaperProgress.animate('#progress5', 30, 1000)">
               ❌ Błąd 30%
             </button>
+          </div>
+          </div>
+          
+          <div class="code-hint">
+            <div class="code-hint-title">💡 Progress Bars - przykład użycia:</div>
+            <pre><code>&lt;!-- Podstawowy pasek postępu --&gt;
+&lt;div class="progress-container"&gt;
+  &lt;div class="progress-bar" id="progress1" style="width: 0%"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Pasek z wariantami kolorów --&gt;
+&lt;div class="progress-container"&gt;
+  &lt;div class="progress-bar progress-success" style="width: 75%"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="progress-container"&gt;
+  &lt;div class="progress-bar progress-warning" style="width: 60%"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="progress-container"&gt;
+  &lt;div class="progress-bar progress-danger" style="width: 30%"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Pasek z etykietą --&gt;
+&lt;div class="flex justify-between items-center mb-1"&gt;
+  &lt;label class="text-sm text-muted"&gt;Pobieranie pliku&lt;/label&gt;
+  &lt;span class="text-sm text-muted" id="progress-label"&gt;0%&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="progress-container"&gt;
+  &lt;div class="progress-bar progress-info" id="progress" style="width: 0%"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Cienkie paski --&gt;
+&lt;div class="progress-container progress-thin"&gt;
+  &lt;div class="progress-bar" style="width: 40%"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="progress-container progress-xs"&gt;
+  &lt;div class="progress-bar progress-success" style="width: 70%"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- JavaScript API --&gt;
+&lt;script&gt;
+// Animowanie paska postępu
+PaperProgress.animate('#progress', 75, 2000);
+
+// Z callback po zakończeniu
+PaperProgress.animate('#progress', 100, 1500, () =&gt; {
+  console.log('Postęp zakończony!');
+});
+&lt;/script&gt;</code></pre>
           </div>
         </div>
       </div>
