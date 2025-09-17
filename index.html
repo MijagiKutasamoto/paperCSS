@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="pl" data-theme="light" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <title>PaperCSS Demo – Framework Papierowy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Framework CSS stylizujący strony jak warstwowane ekrany papieru." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Literata:wght@500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="paper.css" />
+  <link rel="stylesheet" href="demo.css" />
+</head>
+<body>
+
+  <!-- Pasek postępu przewijania -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <!-- Przycisk powrotu do góry -->
+  <button id="backToTop" class="back-to-top" aria-label="Do góry">↑</button>
+
+  <!-- Navbar -->
+  <nav class="navbar" data-scrollspy>
+    <div class="navbar-brand">PaperCSS<span class="badge-outline m-1">demo</span></div>
+    <button class="navbar-toggle" aria-expanded="false" aria-controls="menu">☰ Menu</button>
+    <div class="navbar-menu" id="menu">
+      <a href="#start">Start</a>
+      <a href="#typografia">Typografia</a>
+      <a href="#kolory">Kolory</a>
+      <a href="#przyciski">Przyciski</a>
+      <a href="#komponenty">Komponenty</a>
+      <a href="#formularze">Formularze</a>
+      <a href="#tabela">Tabele</a>
+      <a href="#nowe">Nowe</a>
+      <a href="#dodatkowe">Dodatkowe</a>
+      <a href="#motyw">Motyw</a>
+    </div>
+    <button class="theme-toggle" data-theme-toggle title="Przełącz motyw">🌓 <span data-theme-label>Ciemny</span></button>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container hero-content">
+      <h1 data-reveal="fade-in">Framework PaperCSS</h1>
+      <p class="lead" data-reveal>
+        Lekki zestaw klas i komponentów stylizowanych jak warstwowane karty papieru. Responsywny, dostępnościowy, z motywem jasnym i ciemnym – gotowy do użycia.
+      </p>
+      <div class="flex gap-2" data-reveal="zoom-in">
+        <button class="btn" data-open-modal="welcomeModal">Pokaż modal</button>
+        <a href="#komponenty" class="btn btn-outline">Komponenty</a>
+        <button class="btn btn-ghost" data-tip="Przykład przycisku ghost">Ghost</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Wprowadzenie -->
+    <section id="start" class="demo-section">
+      <h2 data-reveal="fade-up">🚀 Szybki start</h2>
+      <div class="section-intro" data-reveal="fade-in">
+        <strong>PaperCSS</strong> to lekki framework CSS inspirowany estetyką e-ink i papierowych dokumentów. 
+        Każda sekcja ma przycisk <code>&lt;/&gt;</code> pokazujący kod użycia. Kliknij aby zobaczyć implementację!
+      </div>
+      
+      <div class="demo-component" data-reveal="zoom-in">
+        <div class="demo-header">
+          <h3 class="demo-title">Podstawowa instalacja</h3>
+          <button class="code-hint-btn" onclick="toggleCodeHint(this)">{ } Pokaż kod</button>
+        </div>
+        
+        <div class="card">
+          <h4>Dodaj do HTML:</h4>
+          <pre><code>&lt;link rel="stylesheet" href="paper.css" /&gt;</code></pre>
+          <p class="text-muted">Framework automatycznie zastosuje style papierowe do wszystkich elementów.</p>
+        </div>
+        
+        <div class="code-hint">
+          <div class="code-hint-title">💡 Jak używać:</div>
+          <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="pl" data-theme="light"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="paper.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class="container"&gt;
+    &lt;div class="card"&gt;Twoja treść&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Typografia -->
+    <section id="typografia" class="demo-section">
+      <h2 data-reveal="fade-up">📝 Typografia i podstawy</h2>
+      <div class="section-intro" data-reveal="fade-in">
+        System typograficzny oparty na responsywnej skali z czytelną hierarchią nagłówków i utility classes.
+      </div>
+      
+      <div class="demo-component" data-reveal="tilt">
+        <div class="demo-header">
+          <h3 class="demo-title">Skala nagłówków</h3>
+          <button class="code-hint-btn" onclick="toggleCodeHint(this)">{ } Kod HTML</button>
+        </div>
+        
+        <div class="card layered">
+          <h1>H1 Tytuł główny</h1>
+          <h2>H2 Sekcja</h2>
+          <h3>H3 Podsekcja</h3>
+          <h4>H4 Mniejszy nagłówek</h4>
+          <h5>H5 Lead text</h5>
+          <h6>H6 Meta informacje</h6>
+        </div>
+        
+        <div class="code-hint">
+          <div class="code-hint-title">💡 Nagłówki w HTML:</div>
+          <pre><code>&lt;h1&gt;H1 Tytuł główny&lt;/h1&gt;
+&lt;h2&gt;H2 Sekcja&lt;/h2&gt;
+&lt;h3&gt;H3 Podsekcja&lt;/h3&gt;
+&lt;h4&gt;H4 Mniejszy nagłówek&lt;/h4&gt;
+&lt;h5&gt;H5 Lead text&lt;/h5&gt;
+&lt;h6&gt;H6 Meta informacje&lt;/h6&gt;</code></pre>
+        </div>
+      </div>
+      
+      <div class="demo-component" data-reveal="zoom-in">
+        <div class="demo-header">
+          <h3 class="demo-title">Paragrafy i elementy inline</h3>
+          <button class="code-hint-btn" onclick="toggleCodeHint(this)">{ } Kod HTML</button>
+        </div>
+        
+        <div class="card layered">
+          <p>
+            Ten framework korzysta z <code>CSS Variables</code>, responsywnej skali
+            typograficznej oraz utility spacing. Zawiera komponenty o papierowej estetyce.
+          </p>
+          <pre><code>&lt;div class="card layered"&gt;Zawartość karty&lt;/div&gt;</code></pre>
+          <p class="text-muted">
+            Zmieniaj motyw atrybutem <code>data-theme="dark"</code> na <code>&lt;html&gt;</code>.
+          </p>
+        </div>
+        
+        <div class="code-hint">
+          <div class="code-hint-title">💡 Tekst i kod:</div>
+          <pre><code>&lt;p&gt;Normalny paragraf z &lt;code&gt;kodem inline&lt;/code&gt;&lt;/p&gt;
+&lt;p class="text-muted"&gt;Wyciszony tekst&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Blok kodu&lt;/code&gt;&lt;/pre&gt;
+
+&lt;!-- Utility classes --&gt;
+&lt;p class="text-center"&gt;Wyśrodkowany&lt;/p&gt;
+&lt;p class="text-right"&gt;Po prawej&lt;/p&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kolory -->
+    <section id="kolory" class="demo-section">
+      <h2 data-reveal="fade-up">🎨 Paleta i zmienne CSS</h2>
+      <div class="section-intro" data-reveal="fade-in">
+        Framework używa systemu zmiennych CSS, które można łatwo nadpisać. Automatyczne przełączanie między motywem jasnym i ciemnym.
+      </div>
+      
+      <div class="demo-component" data-reveal="fade-in">
+        <div class="demo-header">
+          <h3 class="demo-title">Główne kolory</h3>
+          <button class="code-hint-btn" onclick="toggleCodeHint(this)">{ } Kod CSS</button>
+        </div>
+        
+        <div class="flex gap-3 flex-wrap">
+          <div><div class="swatch"></div><small>Base</small></div>
+          <div><div class="swatch accent"></div><small>Accent</small></div>
+          <div><div class="swatch success"></div><small>Success</small></div>
+          <div><div class="swatch info"></div><small>Info</small></div>
+          <div><div class="swatch warning"></div><small>Warning</small></div>
+          <div><div class="swatch danger"></div><small>Danger</small></div>
+        </div>
+        
+        <div class="code-hint">
+          <div class="code-hint-title">💡 Nadpisywanie kolorów:</div>
+          <pre><code>:root {
+  --paper-accent: #346cab;
+  --paper-accent-hover: #3e79bd;
+  --paper-success: #28a745;
+  --paper-warning: #ffc107;
+  --paper-danger: #dc3545;
+  --paper-info: #17a2b8;
+}
+
+/* W trybie ciemnym automatycznie się zmienią */
+[data-theme="dark"] {
+  --paper-bg: #1a1a1a;
+  --paper-ink: #e8e4d9;
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Przyciski -->
+    <section id="przyciski" class="demo-section">
+      <h2 data-reveal="fade-up">🔘 System przycisków</h2>
+      <div class="section-intro" data-reveal="fade-in">
+        Kompletny system przycisków z wariantami kolorów, stanami i efektami w stylu papierowym.
+      </div>
+      
+      <div class="demo-component" data-reveal="fade-up">
+        <div class="demo-header">
+          <h3 class="demo-title">Podstawowe przyciski</h3>
+          <button class="code-hint-btn" onclick="toggleCodeHint(this)">{ } Kod HTML</button>
+        </div>
+        
+        <div class="flex gap-2 flex-wrap">
+          <button class="btn">Primary</button>
+          <button class="btn btn-secondary">Secondary</button>
+          <button class="btn btn-outline">Outline</button>
+          <button class="btn btn-ghost">Ghost</button>
+        </div>
+        
+        <div class="code-hint">
+          <div class="code-hint-title">💡 Podstawowe przyciski:</div>
+          <pre><code>&lt;button class="btn"&gt;Primary&lt;/button&gt;
+&lt;button class="btn btn-secondary"&gt;Secondary&lt;/button&gt;
+&lt;button class="btn btn-outline"&gt;Outline&lt;/button&gt;
+&lt;button class="btn btn-ghost"&gt;Ghost&lt;/button&gt;</code></pre>
+        </div>
+      </div>
+      
+      <div class="demo-component" data-reveal="zoom-in">
+        <div class="demo-header">
+          <h3 class="demo-title">Warianty kolorów</h3>
+          <button class="code-hint-btn" onclick="toggleCodeHint(this)">{ } Kod HTML</button>
+        </div>
+        
+        <div class="flex gap-2 flex-wrap">
+          <button class="btn btn-success">Success</button>
+          <button class="btn btn-info">Info</button>
+          <button class="btn btn-warning">Warning</button>
+          <button class="btn btn-danger">Danger</button>
+        </div>
+        
+        <div class="code-hint">
+          <div class="code-hint-title">💡 Warianty semantyczne:</div>
+          <pre><code>&lt;button class="btn btn-success"&gt;Success&lt;/button&gt;
+&lt;button class="btn btn-info"&gt;Info&lt;/button&gt;
+&lt;button class="btn btn-warning"&gt;Warning&lt;/button&gt;
+&lt;button class="btn btn-danger"&gt;Danger&lt;/button&gt;
+
+&lt;!-- Można łączyć z outline --&gt;
+&lt;button class="btn btn-outline btn-success"&gt;Outline Success&lt;/button&gt;</code></pre>
+        </div>
+      </div>
+      
+      <div class="demo-component" data-reveal="tilt">
+        <div class="demo-header">
+          <h3 class="demo-title">Specjalne efekty</h3>
+          <button class="code-hint-btn" onclick="toggleCodeHint(this)">{ } Kod HTML</button>
+        </div>
+        
+        <div class="flex gap-2 flex-wrap">
+          <button class="btn btn-ok">OK</button>
+          <button class="btn btn-cancel">Anuluj</button>
+          <button class="btn btn-premium">Premium</button>
+          <button class="btn btn-glow">Świecący</button>
+          <button class="btn btn-3d">3D</button>
+        </div>
+        
+        <div class="code-hint">
+          <div class="code-hint-title">💡 Efekty specjalne:</div>
+          <pre><code>&lt;button class="btn btn-ok"&gt;OK&lt;/button&gt;
+&lt;button class="btn btn-cancel"&gt;Anuluj&lt;/button&gt;
+&lt;button class="btn btn-premium"&gt;Premium&lt;/button&gt;
+&lt;button class="btn btn-glow"&gt;Świecący&lt;/button&gt;
+&lt;button class="btn btn-3d"&gt;3D&lt;/button&gt;
+
+&lt;!-- Można łączyć efekty --&gt;
+&lt;button class="btn btn-success btn-glow"&gt;Success + Glow&lt;/button&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Komponenty -->
+    <section id="komponenty" class="demo-section">
+      <h2 data-reveal="fade-up">🧩 Główne komponenty</h2>
+      <div class="section-intro" data-reveal="fade-in">
+        Podstawowe komponenty interfejsu: karty, alerty, badge'y i panele w stylu papierowym.
+      </div>
+
+      <div class="grid cols-1 gap-6">
+        <div class="demo-component" data-reveal="zoom-in">
+          <div class="demo-header">
+            <h3 class="demo-title">Badge & Alerty</h3>
+            <button class="code-hint-btn" onclick="toggleCodeHint(this)">{ } Kod HTML</button>
+          </div>
+          
+          <div class="card">
+            <p>Tekst z <span class="badge" data-tooltip="Status: Nowy element w systemie">Nowe</span> oraz <span class="badge-outline" data-tooltip="Kategoria: Informacja dla użytkownika">Info</span></p>
+            
+            <!-- Alerty statyczne -->
+            <div class="alert mt-3">
+              <strong>Info:</strong> To jest alert informacyjny.
+            </div>
+            <div class="alert alert-success">
+              <strong>Sukces:</strong> Zapisano poprawnie.
+            </div>
+            <div class="alert alert-warning">
+              <strong>Uwaga:</strong> Sprawdź parametry.
+            </div>
+            <div class="alert alert-danger">
+              <strong>Błąd:</strong> Operacja nie powiodła się.
+            </div>
+            
+            <!-- Przyciski do pokazywania toastów -->
+            <div class="mt-4">
+              <p class="text-muted mb-2">Powiadomienia (toasty) w stylu e-ink:</p>
+              <div class="flex gap-2 flex-wrap">
+                <button class="btn btn-info btn-sm" onclick="PaperToast.show('Informacja została wyświetlona', {title: 'Info'})">
+                  Toast Info
+                </button>
+                <button class="btn btn-success btn-sm" onclick="PaperToast.success('Dane zostały zapisane!', {title: 'Sukces'})">
+                  Toast Sukces
+                </button>
+                <button class="btn btn-warning btn-sm" onclick="PaperToast.warning('Sprawdź wprowadzone dane', {title: 'Uwaga'})">
+                  Toast Uwaga
+                </button>
+                <button class="btn btn-danger btn-sm" onclick="PaperToast.error('Wystąpił błąd!', {title: 'Błąd'})">
+                  Toast Błąd
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="code-hint">
+            <div class="code-hint-title">💡 Badge, alerty i toasty:</div>
+            <pre><code>&lt;!-- Badge --&gt;
+&lt;span class="badge"&gt;Nowe&lt;/span&gt;
+&lt;span class="badge-outline"&gt;Info&lt;/span&gt;
+
+&lt;!-- Alerty --&gt;
+&lt;div class="alert"&gt;Alert podstawowy&lt;/div&gt;
+&lt;div class="alert alert-success"&gt;Alert sukcesu&lt;/div&gt;
+&lt;div class="alert alert-warning"&gt;Alert ostrzeżenia&lt;/div&gt;
+&lt;div class="alert alert-danger"&gt;Alert błędu&lt;/div&gt;
+
+&lt;!-- Toast (JavaScript) --&gt;
+&lt;script&gt;
+PaperToast.show('Wiadomość', {title: 'Tytuł'});
+PaperToast.success('Sukces!');
+PaperToast.error('Błąd!');
+&lt;/script&gt;</code></pre>
+          </div>
+        </div>
+
+        <div class="demo-component" data-reveal="tilt">
+          <div class="demo-header">
+            <h3 class="demo-title">Panel & Karty</h3>
+            <button class="code-hint-btn" onclick="toggleCodeHint(this)">{ } Kod HTML</button>
+          </div>
+          
+          <div class="grid cols-2 gap-4">
+            <div class="panel">
+              <h4>Panel</h4>
+              <p>Lekki panel z przerywaną ramką i papierowym tłem.</p>
+            </div>
+            <div class="paper-edge">
+              <h4>Paper Edge</h4>
+              <p>Efekt papierowej karty z lekką teksturą i blendem.</p>
+            </div>
+          </div>
+          
+          <div class="code-hint">
+            <div class="code-hint-title">💡 Panele i karty:</div>
+            <pre><code>&lt;!-- Podstawowa karta --&gt;
+&lt;div class="card"&gt;
+  &lt;h3&gt;Tytuł karty&lt;/h3&gt;
+  &lt;p&gt;Zawartość karty&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- Warstwowa karta --&gt;
+&lt;div class="card layered"&gt;
+  &lt;h3&gt;Karta z cieniem&lt;/h3&gt;
+&lt;/div&gt;
+
+&lt;!-- Panel --&gt;
+&lt;div class="panel"&gt;
+  &lt;p&gt;Panel z przerywaną ramką&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- Paper edge --&gt;
+&lt;div class="paper-edge"&gt;
+  &lt;p&gt;Efekt papierowej karty&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interaktywne komponenty -->
+      <div class="demo-component" data-reveal="fade-up">
+        <div class="demo-header">
+          <h3 class="demo-title">Tabs (karty)</h3>
+          <button class="code-hint-btn" onclick="toggleCodeHint(this)">{ } Kod HTML</button>
+        </div>
+        
+        <div class="card">
+          <div class="tabs" id="demo-tabs">
+            <div class="tab-list" role="tablist">
+              <button role="tab" aria-selected="true" data-tab="tab-1">Opis</button>
+              <button role="tab" aria-selected="false" data-tab="tab-2">Kod</button>
+              <button role="tab" aria-selected="false" data-tab="tab-3">Dostępność</button>
+            </div>
+            <div id="tab-1" class="tab-panel active" role="tabpanel">
+              <p>
+                Komponent Tabs pozwala przełączać sekcje treści jednym kliknięciem, zachowując czystą strukturę HTML.
+              </p>
+            </div>
+            <div id="tab-2" class="tab-panel" role="tabpanel" aria-hidden="true">
+              <pre><code>&lt;div class="tabs"&gt;
+  &lt;div class="tab-list"&gt;
+    &lt;button data-tab="tab-1"&gt;...&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div id="tab-1" class="tab-panel"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <div id="tab-3" class="tab-panel" role="tabpanel" aria-hidden="true">
+              <p><strong>Obsługa klawiatury według WAI-ARIA APG:</strong></p>
+              <ul>
+                <li><kbd>← →</kbd> lub <kbd>↑ ↓</kbd> - przełączanie między tabami</li>
+                <li><kbd>Home</kbd> - przejdź do pierwszego taba</li>
+                <li><kbd>End</kbd> - przejdź do ostatniego taba</li>
+                <li><kbd>Enter</kbd> lub <kbd>Spacja</kbd> - aktywuj bieżący tab</li>
+                <li><kbd>Tab</kbd> - przenosi fokus do zawartości panelu</li>
+              </ul>
+              <p class="text-muted">Focus management i tabindex są automatycznie zarządzane przez framework.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="code-hint">
+          <div class="code-hint-title">💡 System tabów z obsługą klawiatury WAI-ARIA:</div>
+          <pre><code>&lt;div class="tabs" id="demo-tabs"&gt;
+  &lt;div class="tab-list" role="tablist"&gt;
+    &lt;button role="tab" aria-selected="true" data-tab="tab-1" tabindex="0"&gt;Tab 1&lt;/button&gt;
+    &lt;button role="tab" aria-selected="false" data-tab="tab-2" tabindex="-1"&gt;Tab 2&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div id="tab-1" class="tab-panel active" role="tabpanel" aria-hidden="false"&gt;
+    &lt;p&gt;Zawartość pierwszego taba&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div id="tab-2" class="tab-panel" role="tabpanel" aria-hidden="true"&gt;
+    &lt;p&gt;Zawartość drugiego taba&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Obsługa klawiatury WAI-ARIA APG --&gt;
+&lt;!-- ← → lub ↑ ↓ : przełączanie między tabami --&gt;
+&lt;!-- Home/End : pierwszy/ostatni tab --&gt;
+&lt;!-- Enter/Spacja : aktywacja taba --&gt;
+&lt;!-- Tab : przenosi fokus do zawartości panelu --&gt;</code></pre>
+        </div>
+      </div>
+
+      <!-- Accordion -->
+      <div class="demo-component" data-reveal="zoom-in">
+        <div class="demo-header">
+          <h3 class="demo-title">Accordion</h3>
+          <button class="code-hint-btn" onclick="toggleCodeHint(this)">{ } Kod HTML</button>
+        </div>
+        
+        <div class="card">
+          <div class="accordion" id="demo-accordion">
+            <div class="accordion-item">
+              <h4 class="accordion-header">
+                <button class="accordion-button" aria-expanded="true">Sekcja 1</button>
+              </h4>
+              <div class="accordion-content open">
+                <p>Treść sekcji pierwszej - automatycznie rozwinięta.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h4 class="accordion-header">
+                <button class="accordion-button" aria-expanded="false">Sekcja 2</button>
+              </h4>
+              <div class="accordion-content">
+                <p>Więcej treści – łatwo dodawać kolejne bloki.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="code-hint">
+          <div class="code-hint-title">💡 Accordion (harmonijka):</div>
+          <pre><code>&lt;div class="accordion"&gt;
+  &lt;div class="accordion-item"&gt;
+    &lt;h4 class="accordion-header"&gt;
+      &lt;button class="accordion-button" aria-expanded="true"&gt;
+        Tytuł sekcji
+      &lt;/button&gt;
+    &lt;/h4&gt;
+    &lt;div class="accordion-content open"&gt;
+      &lt;p&gt;Zawartość sekcji&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Klasa "open" = rozwinięta na start --&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formularze -->
+    <section id="formularze" class="demo-section">
+      <h2 data-reveal="fade-up">Formularze ze stanami</h2>
+      <form class="maxw-md" data-reveal="tilt">
+        <div class="form-group field-success">
+          <label for="f-name">Imię</label>
+          <input type="text" id="f-name" placeholder="Wpisz imię" value="Jan" />
+          <div class="help-text">Wygląda dobrze.</div>
+        </div>
+        <div class="form-group field-warning">
+          <label for="f-email">Email</label>
+          <input type="email" id="f-email" placeholder="name@example.com" />
+          <div class="help-text">Sprawdź format adresu.</div>
+        </div>
+        <div class="form-group field-danger">
+          <label for="f-pass">Hasło</label>
+          <input type="password" id="f-pass" />
+          <div class="help-text">Za krótkie.</div>
+        </div>
+        <div class="form-group field-info">
+          <label for="f-role">Rola</label>
+          <select id="f-role">
+            <option>Wybierz...</option>
+            <option>Admin</option>
+            <option>Użytkownik</option>
+          </select>
+          <div class="help-text">Wybierz rolę użytkownika.</div>
+        </div>
+        <div class="form-group">
+          <label for="f-msg">Wiadomość</label>
+          <textarea id="f-msg" rows="4"></textarea>
+          <div class="help-text">Opcjonalne pole.</div>
+        </div>
+        <div class="form-group input-inline">
+          <div>
+            <label for="f-inline1">Inline 1</label>
+            <input type="text" id="f-inline1" />
+          </div>
+          <div>
+            <label for="f-inline2">Inline 2</label>
+            <input type="text" id="f-inline2" />
+          </div>
+        </div>
+        <button type="button" class="btn btn-submit demo-submit">Wyślij</button>
+        <button type="reset" class="btn btn-outline">Wyczyść</button>
+      </form>
+    </section>
+
+    <!-- Tabela -->
+    <section id="tabela" class="demo-section">
+      <h2 data-reveal="fade-up">Tabela danych</h2>
+      <div class="table-wrapper" data-reveal="zoom-in">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Nazwa</th>
+              <th>Status</th>
+              <th>Tag</th>
+              <th>Akcje</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>01</td>
+              <td>Element Alfa</td>
+              <td><span class="badge">Nowy</span></td>
+              <td><code>.alpha</code></td>
+              <td><button class="btn btn-ghost" data-tip="Podgląd">👁</button></td>
+            </tr>
+            <tr>
+              <td>02</td>
+              <td>Element Beta</td>
+              <td><span class="badge-outline">Info</span></td>
+              <td><code>.beta</code></td>
+              <td><button class="btn btn-ghost" data-tip="Edytuj">✎</button></td>
+            </tr>
+            <tr>
+              <td>03</td>
+              <td>Element Gamma</td>
+              <td><span class="badge">Nowy</span></td>
+              <td><code>.gamma</code></td>
+              <td><button class="btn btn-ghost" data-tip="Usuń">🗑</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <nav class="pagination mt-4" data-reveal="fade-up">
+        <button disabled>&laquo;</button>
+        <button class="active">1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>&raquo;</button>
+      </nav>
+    </section>
+
+    <!-- Breadcrumb -->
+    <section class="demo-section" id="breadcrumb">
+      <h2 data-reveal="fade-up">Nawigacja Breadcrumb</h2>
+      <nav class="breadcrumb" aria-label="breadcrumb" data-reveal="fade-in">
+        <a href="#">Start</a> <span>/</span>
+        <a href="#">Sekcja</a> <span>/</span>
+        <a href="#">Podstrona</a> <span>/</span>
+        <span>Aktualna</span>
+      </nav>
+    </section>
+
+    <!-- Modal info -->
+    <section id="modal" class="demo-section">
+      <h2 data-reveal="fade-up">Modal</h2>
+      <p data-reveal="fade-in">
+        Modale są ukryte przez <code>.modal-backdrop</code> i pokazywane przez dodanie klasy
+        <code>.open</code>. Użyj atrybutu <code>data-open-modal="id"</code>.
+      </p>
+      <button class="btn" data-open-modal="welcomeModal" data-reveal="zoom-in">Otwórz modal</button>
+    </section>
+
+    <!-- Motyw -->
+    <section id="motyw" class="demo-section">
+      <h2 data-reveal="fade-up">Motyw &amp; Tryb ciemny</h2>
+      <p data-reveal>
+        Atrybut <code>data-theme="dark"</code> przełącza paletę. Przycisk w navbarze zapisuje
+        wybór w <code>localStorage</code>. Wszystkie komponenty, w tym toasty, automatycznie
+        dostosowują się do motywu papierowego.
+      </p>
+      
+      <div class="grid cols-2 gap-4">
+        <div class="card" data-reveal="tilt">
+          <h3>Nadpisywanie zmiennych</h3>
+          <pre><code>:root {
+  --paper-accent: #346cab;
+  --paper-accent-hover: #3e79bd;
+}</code></pre>
+        </div>
+        
+        <div class="card" data-reveal="zoom-in">
+          <h3>Test w trybie ciemnym</h3>
+          <p class="text-muted mb-3">Przełącz motyw przyciskiem w navbar i przetestuj toasty:</p>
+          <div class="flex gap-2 flex-wrap">
+            <button class="btn btn-outline btn-sm" onclick="PaperToast.success('Motyw działa!', {title: 'Test'})">
+              Test Toast
+            </button>
+            <button class="btn btn-ghost btn-sm" onclick="PaperToast.show('E-ink w trybie nocnym', {title: 'Sepia', duration: 3000})">
+              Sepia Toast
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nowe komponenty -->
+    <section id="nowe" class="demo-section">
+      <h2 data-reveal="fade-up">Nowe Komponenty</h2>
+      
+      <div class="grid cols-1 gap-6">
+        <!-- Skeleton Loading -->
+        <div class="card" data-reveal="slide-left">
+          <h3>Skeleton Loading</h3>
+          <div id="skeleton-demo" class="mb-4">
+            <p>To jest normalna treść z tekstem i obrazami.</p>
+            <div style="width: 60px; height: 60px; background: var(--paper-accent); border-radius: 50%; margin: 1rem 0;"></div>
+            <p>Więcej treści do ukrycia za skeleton.</p>
+          </div>
+          <div class="flex gap-2">
+            <button class="btn btn-primary" onclick="PaperSkeleton.show('#skeleton-demo')">Pokaż skeleton</button>
+            <button class="btn btn-secondary" onclick="PaperSkeleton.hide('#skeleton-demo')">Ukryj skeleton</button>
+          </div>
+        </div>
+
+        <!-- Offcanvas Panel -->
+        <div class="card" data-reveal="slide-right">
+          <h3>Offcanvas Panel</h3>
+          <p>Panel wysuwany z boku ekranu z animacją i blokadą scrolla.</p>
+          <button class="btn btn-primary" data-open-offcanvas="demo-offcanvas">Otwórz panel</button>
+        </div>
+
+        <!-- Dropdown Menu -->
+        <div class="card" data-reveal="zoom-in">
+          <h3>Dropdown Menu</h3>
+          <p>Menu rozwijane z obsługą klawiatury i animacjami.</p>
+          <div class="dropdown">
+            <button class="btn btn-secondary" data-dropdown-toggle>
+              Menu opcji ▼
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="#" class="dropdown-item">⚙️ Ustawienia</a></li>
+              <li><a href="#" class="dropdown-item">👤 Profil</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a href="#" class="dropdown-item">🚪 Wyloguj</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Chip/Tag System -->
+        <div class="card" data-reveal="tilt">
+          <h3>Chip/Tag System</h3>
+          <p>Interaktywne tagi z możliwością usuwania i różnymi stylami.</p>
+          <div class="chip-group mb-3">
+            <div class="chip">
+              <span>React</span>
+              <button class="chip-close">&times;</button>
+            </div>
+            <div class="chip chip-outlined">
+              <span>JavaScript</span>
+              <button class="chip-close">&times;</button>
+            </div>
+            <div class="chip chip-small">
+              <span>CSS</span>
+              <button class="chip-close">&times;</button>
+            </div>
+            <div class="chip chip-outlined chip-small">
+              <span>HTML</span>
+              <button class="chip-close">&times;</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Progress Bars -->
+        <div class="card" data-reveal="fade-up">
+          <h3>Progress Bars</h3>
+          <p>Paski postępu z animowanym wypełnianiem i różnymi stylami.</p>
+          
+          <div class="mb-4">
+            <h4 class="mb-3">Podstawowe paski postępu</h4>
+            
+            <div class="mb-3">
+              <label class="text-sm text-muted mb-1 block">Standardowy (75%)</label>
+              <div class="progress-container">
+                <div class="progress-bar" id="progress1" style="width: 0%"></div>
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <label class="text-sm text-muted mb-1 block">Prążkowany (50%)</label>
+              <div class="progress-container">
+                <div class="progress-bar progress-striped" id="progress2" style="width: 0%"></div>
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <label class="text-sm text-muted mb-1 block">Sukces (90%)</label>
+              <div class="progress-container">
+                <div class="progress-bar progress-success" id="progress3" style="width: 0%"></div>
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <label class="text-sm text-muted mb-1 block">Ostrzeżenie (60%)</label>
+              <div class="progress-container">
+                <div class="progress-bar progress-warning" id="progress4" style="width: 0%"></div>
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <label class="text-sm text-muted mb-1 block">Błąd (30%)</label>
+              <div class="progress-container">
+                <div class="progress-bar progress-danger" id="progress5" style="width: 0%"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mb-4">
+            <h4 class="mb-3">Paski z etykietami</h4>
+            
+            <div class="mb-3">
+              <div class="flex justify-between items-center mb-1">
+                <label class="text-sm text-muted">Pobieranie pliku</label>
+                <span class="text-sm text-muted" id="progress6-label">0%</span>
+              </div>
+              <div class="progress-container">
+                <div class="progress-bar progress-info" id="progress6" style="width: 0%"></div>
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <div class="flex justify-between items-center mb-1">
+                <label class="text-sm text-muted">Instalacja</label>
+                <span class="text-sm text-muted" id="progress7-label">0%</span>
+              </div>
+              <div class="progress-container">
+                <div class="progress-bar progress-striped progress-info" id="progress7" style="width: 0%"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mb-4">
+            <h4 class="mb-3">Paski cienkie</h4>
+            
+            <div class="mb-3">
+              <label class="text-sm text-muted mb-1 block">Cienki pasek (40%)</label>
+              <div class="progress-container progress-thin">
+                <div class="progress-bar" id="progress8" style="width: 0%"></div>
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <label class="text-sm text-muted mb-1 block">Bardzo cienki (70%)</label>
+              <div class="progress-container progress-xs">
+                <div class="progress-bar progress-success" id="progress9" style="width: 0%"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="flex gap-2 flex-wrap">
+            <button class="btn btn-primary" onclick="animateAllProgress()">
+              🎬 Animuj wszystkie
+            </button>
+            <button class="btn btn-secondary" onclick="resetAllProgress()">
+              🔄 Resetuj
+            </button>
+            <button class="btn btn-success" onclick="PaperProgress.animate('#progress3', 90, 2000)">
+              ✅ Sukces 90%
+            </button>
+            <button class="btn btn-warning" onclick="PaperProgress.animate('#progress4', 60, 1500)">
+              ⚠ Ostrzeżenie 60%
+            </button>
+            <button class="btn btn-danger" onclick="PaperProgress.animate('#progress5', 30, 1000)">
+              ❌ Błąd 30%
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Więcej komponentów -->
+    <section id="dodatkowe" class="demo-section">
+      <h2 data-reveal="fade-up">Dodatkowe Komponenty</h2>
+      
+      <div class="grid cols-1 gap-6">
+        <!-- Tooltip System -->
+        <div class="card" data-reveal="slide-left">
+          <h3>Tooltip System</h3>
+          <p>Wskazówki kontekstowe wyświetlane przy najechaniu myszą lub focus klawiatury.</p>
+          <div class="mb-4">
+            <h4 class="mb-3">Podstawowe tooltipsy</h4>
+            <div class="flex gap-4 flex-wrap items-center">
+              <button class="btn btn-primary" data-tooltip="Przycisk główny - kliknij aby wykonać akcję">
+                Przycisk Primary
+              </button>
+              <button class="btn btn-success btn-sm" data-tooltip="Operacja zakończona sukcesem">
+                ✓ Sukces
+              </button>
+              <button class="btn btn-warning btn-sm" data-tooltip="Uwaga! Ta operacja wymaga potwierdzenia">
+                ⚠ Uwaga
+              </button>
+              <button class="btn btn-danger btn-sm" data-tooltip="Usuń element - nie można cofnąć">
+                🗑 Usuń
+              </button>
+            </div>
+          </div>
+          
+          <div class="mb-4">
+            <h4 class="mb-3">Inne elementy z tooltipami</h4>
+            <div class="flex gap-4 flex-wrap items-center">
+              <span class="badge" data-tooltip="Status: Nowy element w systemie">Nowy</span>
+              <span class="badge-outline" data-tooltip="Kategoria: Informacja dla użytkownika">Info</span>
+              <a href="#" class="btn btn-ghost" data-tooltip="Przejdź do dokumentacji">📚 Dokumentacja</a>
+              <code data-tooltip="Klasa CSS do stylowania kart">.card</code>
+            </div>
+          </div>
+          
+          <div class="mb-4">
+            <h4 class="mb-3">Tooltipsy z ikonami</h4>
+            <div class="flex gap-3">
+              <button class="btn btn-outline" data-tooltip="Ustawienia aplikacji">
+                ⚙️
+              </button>
+              <button class="btn btn-outline" data-tooltip="Profil użytkownika">
+                👤
+              </button>
+              <button class="btn btn-outline" data-tooltip="Powiadomienia">
+                🔔
+              </button>
+              <button class="btn btn-outline" data-tooltip="Pomoc i wsparcie">
+                ❓
+              </button>
+              <button class="btn btn-outline" data-tooltip="Wyloguj z systemu">
+                🚪
+              </button>
+            </div>
+          </div>
+          
+          <div class="alert alert-info">
+            <strong>Tip:</strong> Tooltipsy działają zarówno przy hover myszy jak i focus klawiatury (Tab). 
+            Automatycznie pozycjonują się aby były widoczne na ekranie.
+          </div>
+        </div>
+
+        <!-- Alert/Banner Components -->
+        <div class="card" data-reveal="slide-right">
+          <h3>Alert/Banner System</h3>
+          
+          <!-- Kontener dla dynamicznych alertów -->
+          <div id="dynamic-alerts-container" class="mb-4" style="min-height: 2rem;">
+            <!-- Tutaj będą pojawiać się dynamiczne alerty -->
+          </div>
+          
+          <div class="alert alert-info alert-dismissible">
+            <strong>Info:</strong> To jest alert informacyjny z możliwością zamknięcia.
+            <button class="alert-close">&times;</button>
+          </div>
+          <div class="alert alert-success">
+            <strong>Sukces:</strong> Operacja zakończona pomyślnie.
+          </div>
+          <div class="alert alert-warning alert-dismissible">
+            <strong>Uwaga:</strong> Sprawdź wprowadzone dane.
+            <button class="alert-close">&times;</button>
+          </div>
+          <div class="alert alert-error alert-dismissible">
+            <strong>Błąd:</strong> Wystąpił problem z przetwarzaniem.
+            <button class="alert-close">&times;</button>
+          </div>
+          <div class="flex gap-2 flex-wrap">
+            <button class="btn btn-primary" onclick="showDynamicAlert('Alert dynamiczny!', 'info', true)">
+              Dodaj alert Info
+            </button>
+            <button class="btn btn-success" onclick="showDynamicAlert('Operacja udana!', 'success', true)">
+              Dodaj alert Sukces
+            </button>
+            <button class="btn btn-warning" onclick="showDynamicAlert('Uwaga na to!', 'warning', true)">
+              Dodaj alert Uwaga
+            </button>
+            <button class="btn btn-danger" onclick="showDynamicAlert('Wystąpił błąd!', 'error', true)">
+              Dodaj alert Błąd
+            </button>
+          </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="card" data-reveal="zoom-in">
+          <h3>Pagination</h3>
+          <p>Nawigacja między stronami w stylu papierowym.</p>
+          <nav class="pagination">
+            <a href="#" class="pagination-item disabled">‹ Poprzednia</a>
+            <a href="#" class="pagination-item active">1</a>
+            <a href="#" class="pagination-item">2</a>
+            <a href="#" class="pagination-item">3</a>
+            <span class="pagination-item disabled">...</span>
+            <a href="#" class="pagination-item">10</a>
+            <a href="#" class="pagination-item">Następna ›</a>
+          </nav>
+        </div>
+
+        <!-- Search & Filter -->
+        <div class="card" data-reveal="tilt">
+          <h3>Search & Filter</h3>
+          <div class="search-container mb-3">
+            <input type="text" class="search-input" placeholder="Szukaj...">
+            <span class="search-icon">🔍</span>
+          </div>
+          <div class="filter-group">
+            <button class="filter-btn active">Wszystkie</button>
+            <button class="filter-btn">JavaScript</button>
+            <button class="filter-btn">CSS</button>
+            <button class="filter-btn">HTML</button>
+            <button class="filter-btn">React</button>
+          </div>
+        </div>
+
+        <!-- Loading States -->
+        <div class="card" data-reveal="fade-up">
+          <h3>Loading States</h3>
+          <p>Różne stany ładowania w stylu e-ink.</p>
+          <div class="flex gap-4 items-center flex-wrap">
+            <div class="loading-dots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="loading-spinner"></div>
+            <div class="loading-pulse"></div>
+            <span class="text-muted">Ładowanie...</span>
+          </div>
+        </div>
+
+        <!-- Empty State -->
+        <div class="card" data-reveal="slide-left">
+          <h3>Empty State</h3>
+          <div class="empty-state">
+            <div class="empty-state-icon">📄</div>
+            <h3>Brak danych</h3>
+            <p>Nie znaleziono żadnych elementów do wyświetlenia. Dodaj nowy element lub zmień filtry wyszukiwania.</p>
+            <button class="btn btn-primary">Dodaj element</button>
+          </div>
+        </div>
+
+        <!-- Gallery -->
+        <div class="card" data-reveal="slide-right">
+          <h3>Image Gallery</h3>
+          <div class="gallery">
+            <div class="gallery-item">
+              <div style="background: linear-gradient(45deg, #f4f1e8, #e8e4d9); height: 200px; display: flex; align-items: center; justify-content: center; color: #8b7355;">
+                Obrazek 1
+              </div>
+              <div class="gallery-caption">Opis pierwszego obrazu</div>
+            </div>
+            <div class="gallery-item">
+              <div style="background: linear-gradient(135deg, #f4f1e8, #e8e4d9); height: 200px; display: flex; align-items: center; justify-content: center; color: #8b7355;">
+                Obrazek 2
+              </div>
+              <div class="gallery-caption">Opis drugiego obrazu</div>
+            </div>
+            <div class="gallery-item">
+              <div style="background: linear-gradient(90deg, #f4f1e8, #e8e4d9); height: 200px; display: flex; align-items: center; justify-content: center; color: #8b7355;">
+                Obrazek 3
+              </div>
+              <div class="gallery-caption">Opis trzeciego obrazu</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Responsive Images -->
+        <div class="card" data-reveal="zoom-in">
+          <h3>Responsive Images</h3>
+          <p>Klasy pomocnicze dla obrazów.</p>
+          <div class="grid cols-3 gap-4 text-center">
+            <div>
+              <div class="img-responsive img-paper" style="width: 80px; height: 80px; background: var(--paper-accent); margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white;">IMG</div>
+              <code>.img-paper</code>
+            </div>
+            <div>
+              <div class="img-responsive img-rounded" style="width: 80px; height: 80px; background: var(--paper-accent); margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white;">IMG</div>
+              <code>.img-rounded</code>
+            </div>
+            <div>
+              <div class="img-responsive img-circle" style="width: 80px; height: 80px; background: var(--paper-accent); margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white;">IMG</div>
+              <code>.img-circle</code>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Offcanvas struktura -->
+  <div class="offcanvas-backdrop" id="demo-offcanvas-backdrop">
+    <div class="offcanvas" id="demo-offcanvas">
+      <div class="offcanvas-header">
+        <h3>Panel boczny</h3>
+        <button class="offcanvas-close btn-ghost">&times;</button>
+      </div>
+      <div class="offcanvas-body">
+        <p>To jest zawartość panelu bocznego z autentycznym wyglądem papierowego ekranu.</p>
+        <ul>
+          <li>Opcja 1</li>
+          <li>Opcja 2</li>
+          <li>Opcja 3</li>
+        </ul>
+        <div class="mt-4">
+          <button class="btn btn-primary">Zapisz</button>
+          <button class="btn btn-outline">Anuluj</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container flex flex-col gap-2">
+      <div>PaperCSS Demo – Lekki framework w stylu e-ink.</div>
+      <div class="text-muted">
+        Mijagi Kutasamoto. &copy; 2025
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal-backdrop" id="welcomeModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal">
+      <button class="modal-close" aria-label="Zamknij">×</button>
+      <div class="modal-header">
+        <h3>Witaj w PaperCSS</h3>
+      </div>
+      <div class="modal-body">
+        <p>
+          To okno modal pokazuje warstwowy styl oraz integrację z resztą komponentów.
+          Nowe w 0.2.0: pasek przewijania, scrollspy, back-to-top, reveal, walidacje i stany ładowania przycisków.
+        </p>
+        <ul class="feature-list">
+          <li>Responsywne layouty (grid, flex)</li>
+          <li>Komponenty: tabs, accordion, modal</li>
+          <li>Narzędzia spacingu i typografii</li>
+          <li>Motyw jasny / ciemny</li>
+          <li>Scroll progress & scrollspy</li>
+          <li>Animacje reveal</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" onclick="document.getElementById('welcomeModal').classList.remove('open')">Zamknij</button>
+        <button class="btn" onclick="document.getElementById('welcomeModal').classList.remove('open')">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="paper.js"></script>
+  <script src="demo.js"></script>
+</body>
+</html>
