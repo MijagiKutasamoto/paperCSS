@@ -229,6 +229,829 @@
       </div>
     </section>
 
+    <!-- New Components -->
+    <section id="new" class="demo-section">
+      <h2 data-reveal="fade-up">🆕 New Components</h2>
+      <div class="section-intro" data-reveal="fade-in">
+        Latest additions to the PaperCSS framework - modern interactive components with paper-style aesthetics.
+      </div>
+      
+      <div class="grid cols-1 gap-6">
+        <!-- Skeleton Loading -->
+        <div class="demo-component" data-reveal="slide-left">
+          <div class="demo-header">
+            <h3 class="demo-title">Skeleton Loading</h3>
+            <button class="code-hint-btn" data-open-label="{ } Show code" data-close-label="✕ Hide code" onclick="toggleCodeHint(this)">{ } Show code</button>
+          </div>
+          
+          <div class="card">
+            <p>Placeholder animation while content is loading.</p>
+            <div id="skeleton-demo-en" class="mb-4">
+              <p>This is normal content with text and images.</p>
+              <div style="width: 60px; height: 60px; background: var(--paper-accent); border-radius: 50%; margin: 1rem 0;"></div>
+              <p>More content to hide behind skeleton.</p>
+            </div>
+            <div class="flex gap-2">
+              <button class="btn btn-primary" onclick="PaperSkeleton.show('#skeleton-demo-en')">Show Skeleton</button>
+              <button class="btn btn-secondary" onclick="PaperSkeleton.hide('#skeleton-demo-en')">Hide Skeleton</button>
+            </div>
+          </div>
+          
+          <div class="code-hint">
+            <div class="code-hint-title">💡 Skeleton Loading - usage example:</div>
+            <pre><code>&lt;!-- HTML - content container --&gt;
+&lt;div id="content-demo"&gt;
+  &lt;p&gt;Content to hide behind skeleton&lt;/p&gt;
+  &lt;div class="user-avatar"&gt;&lt;/div&gt;
+  &lt;p&gt;More content&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- Control buttons --&gt;
+&lt;button onclick="PaperSkeleton.show('#content-demo')"&gt;
+  Show skeleton
+&lt;/button&gt;
+&lt;button onclick="PaperSkeleton.hide('#content-demo')"&gt;
+  Hide skeleton
+&lt;/button&gt;
+
+&lt;!-- JavaScript API --&gt;
+&lt;script&gt;
+// Show skeleton on element
+PaperSkeleton.show('#content-demo');
+
+// Hide skeleton and restore content
+PaperSkeleton.hide('#content-demo');
+
+// Auto-hide after timeout
+setTimeout(() =&gt; PaperSkeleton.hide('#content-demo'), 3000);
+&lt;/script&gt;</code></pre>
+          </div>
+        </div>
+
+        <!-- Offcanvas Panel -->
+        <div class="demo-component" data-reveal="slide-right">
+          <div class="demo-header">
+            <h3 class="demo-title">Offcanvas Panel</h3>
+            <button class="code-hint-btn" data-open-label="{ } Show code" data-close-label="✕ Hide code" onclick="toggleCodeHint(this)">{ } Show code</button>
+          </div>
+          
+          <div class="card">
+            <p>Side panel sliding from screen edge with animation and scroll lock.</p>
+            <button class="btn btn-primary" data-open-offcanvas="demo-offcanvas">Open Panel</button>
+          </div>
+          
+          <div class="code-hint">
+            <div class="code-hint-title">💡 Offcanvas Panel - usage example:</div>
+            <pre><code>&lt;!-- Trigger button --&gt;
+&lt;button class="btn btn-primary" data-open-offcanvas="demo-offcanvas"&gt;
+  Open panel
+&lt;/button&gt;
+
+&lt;!-- Offcanvas structure --&gt;
+&lt;div class="offcanvas-backdrop" id="demo-offcanvas-backdrop"&gt;
+  &lt;div class="offcanvas" id="demo-offcanvas"&gt;
+    &lt;div class="offcanvas-header"&gt;
+      &lt;h3&gt;Panel title&lt;/h3&gt;
+      &lt;button class="offcanvas-close btn-ghost"&gt;&amp;times;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="offcanvas-body"&gt;
+      &lt;p&gt;Side panel content&lt;/p&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Option 1&lt;/li&gt;
+        &lt;li&gt;Option 2&lt;/li&gt;
+        &lt;li&gt;Option 3&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;div class="mt-4"&gt;
+        &lt;button class="btn btn-primary"&gt;Save&lt;/button&gt;
+        &lt;button class="btn btn-outline"&gt;Cancel&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- JavaScript - automatic with data-open-offcanvas --&gt;</code></pre>
+          </div>
+        </div>
+
+        <!-- Dropdown Menu -->
+        <div class="demo-component" data-reveal="zoom-in">
+          <div class="demo-header">
+            <h3 class="demo-title">Dropdown Menu</h3>
+            <button class="code-hint-btn" data-open-label="{ } Show code" data-close-label="✕ Hide code" onclick="toggleCodeHint(this)">{ } Show code</button>
+          </div>
+          
+          <div class="card">
+            <p>Dropdown menu with keyboard support and animations.</p>
+            <div class="dropdown">
+              <button class="btn btn-secondary" data-dropdown-toggle>
+                Menu options ▼
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="#" class="dropdown-item">⚙️ Settings</a></li>
+                <li><a href="#" class="dropdown-item">👤 Profile</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a href="#" class="dropdown-item">🚪 Logout</a></li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="code-hint">
+            <div class="code-hint-title">💡 Dropdown Menu - usage example:</div>
+            <pre><code>&lt;!-- Dropdown with button and menu --&gt;
+&lt;div class="dropdown"&gt;
+  &lt;button class="btn btn-secondary" data-dropdown-toggle&gt;
+    Menu options ▼
+  &lt;/button&gt;
+  &lt;ul class="dropdown-menu"&gt;
+    &lt;li&gt;&lt;a href="#" class="dropdown-item"&gt;⚙️ Settings&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#" class="dropdown-item"&gt;👤 Profile&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;hr class="dropdown-divider"&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#" class="dropdown-item"&gt;🚪 Logout&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;!-- Different button styles --&gt;
+&lt;div class="dropdown"&gt;
+  &lt;button class="btn btn-outline" data-dropdown-toggle&gt;
+    More ⋯
+  &lt;/button&gt;
+  &lt;ul class="dropdown-menu"&gt;
+    &lt;li&gt;&lt;a href="#" class="dropdown-item"&gt;Edit&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#" class="dropdown-item"&gt;Delete&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;!-- Automatic handling via data-dropdown-toggle --&gt;</code></pre>
+          </div>
+        </div>
+
+        <!-- Chip/Tag System -->
+        <div class="demo-component" data-reveal="tilt">
+          <div class="demo-header">
+            <h3 class="demo-title">Chip/Tag System</h3>
+            <button class="code-hint-btn" data-open-label="{ } Show code" data-close-label="✕ Hide code" onclick="toggleCodeHint(this)">{ } Show code</button>
+          </div>
+          
+          <div class="card">
+            <p>Interactive tags with removal capability and different styles.</p>
+            <div class="chip-group mb-3">
+              <div class="chip">
+                <span>React</span>
+                <button class="chip-close">&times;</button>
+              </div>
+              <div class="chip chip-outlined">
+                <span>JavaScript</span>
+                <button class="chip-close">&times;</button>
+              </div>
+              <div class="chip chip-small">
+                <span>CSS</span>
+                <button class="chip-close">&times;</button>
+              </div>
+              <div class="chip chip-outlined chip-small">
+                <span>HTML</span>
+                <button class="chip-close">&times;</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="code-hint">
+            <div class="code-hint-title">💡 Chip/Tag System - usage example:</div>
+            <pre><code>&lt;!-- Chip/tag group --&gt;
+&lt;div class="chip-group"&gt;
+  &lt;!-- Basic chip --&gt;
+  &lt;div class="chip"&gt;
+    &lt;span&gt;React&lt;/span&gt;
+    &lt;button class="chip-close"&gt;&amp;times;&lt;/button&gt;
+  &lt;/div&gt;
+  
+  &lt;!-- Outlined chip --&gt;
+  &lt;div class="chip chip-outlined"&gt;
+    &lt;span&gt;JavaScript&lt;/span&gt;
+    &lt;button class="chip-close"&gt;&amp;times;&lt;/button&gt;
+  &lt;/div&gt;
+  
+  &lt;!-- Small chip --&gt;
+  &lt;div class="chip chip-small"&gt;
+    &lt;span&gt;CSS&lt;/span&gt;
+    &lt;button class="chip-close"&gt;&amp;times;&lt;/button&gt;
+  &lt;/div&gt;
+  
+  &lt;!-- Chip without close button --&gt;
+  &lt;div class="chip"&gt;
+    &lt;span&gt;HTML&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- JavaScript for chip removal --&gt;
+&lt;script&gt;
+// Auto-removal on .chip-close click
+document.addEventListener('click', (e) =&gt; {
+  if (e.target.classList.contains('chip-close')) {
+    e.target.closest('.chip').remove();
+  }
+});
+&lt;/script&gt;</code></pre>
+          </div>
+        </div>
+
+        <!-- Progress Bars -->
+        <div class="demo-component" data-reveal="fade-up">
+          <div class="demo-header">
+            <h3 class="demo-title">Progress Bars</h3>
+            <button class="code-hint-btn" data-open-label="{ } Show code" data-close-label="✕ Hide code" onclick="toggleCodeHint(this)">{ } Show code</button>
+          </div>
+          
+          <div class="card">
+            <p>Progress bars with animated filling and different styles.</p>
+            
+            <div class="mb-4">
+              <h4 class="mb-3">Basic progress bars</h4>
+              
+              <div class="mb-3">
+                <label class="text-sm text-muted mb-1 block">Standard (75%)</label>
+                <div class="progress-container">
+                  <div class="progress-bar" id="progress1-en" style="width: 0%"></div>
+                </div>
+              </div>
+              
+              <div class="mb-3">
+                <label class="text-sm text-muted mb-1 block">Success (90%)</label>
+                <div class="progress-container">
+                  <div class="progress-bar progress-success" id="progress3-en" style="width: 0%"></div>
+                </div>
+              </div>
+              
+              <div class="mb-3">
+                <label class="text-sm text-muted mb-1 block">Warning (60%)</label>
+                <div class="progress-container">
+                  <div class="progress-bar progress-warning" id="progress4-en" style="width: 0%"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="flex gap-2 flex-wrap">
+              <button class="btn btn-primary" onclick="animateProgressBarsEN()">
+                🎬 Animate All
+              </button>
+              <button class="btn btn-secondary" onclick="resetProgressBarsEN()">
+                🔄 Reset
+              </button>
+              <button class="btn btn-success" onclick="PaperProgress.animate('#progress3-en', 90, 2000)">
+                ✅ Success 90%
+              </button>
+            </div>
+          </div>
+          
+          <div class="code-hint">
+            <div class="code-hint-title">💡 Progress Bars - usage example:</div>
+            <pre><code>&lt;!-- Basic progress bar --&gt;
+&lt;div class="progress-container"&gt;
+  &lt;div class="progress-bar" id="progress1" style="width: 0%"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Colored variants --&gt;
+&lt;div class="progress-container"&gt;
+  &lt;div class="progress-bar progress-success" style="width: 75%"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="progress-container"&gt;
+  &lt;div class="progress-bar progress-warning" style="width: 60%"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="progress-container"&gt;
+  &lt;div class="progress-bar progress-danger" style="width: 30%"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Progress with label --&gt;
+&lt;div class="flex justify-between items-center mb-1"&gt;
+  &lt;label class="text-sm text-muted"&gt;Downloading file&lt;/label&gt;
+  &lt;span class="text-sm text-muted" id="progress-label"&gt;0%&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="progress-container"&gt;
+  &lt;div class="progress-bar progress-info" id="progress" style="width: 0%"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Thin progress bars --&gt;
+&lt;div class="progress-container progress-thin"&gt;
+  &lt;div class="progress-bar" style="width: 40%"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="progress-container progress-xs"&gt;
+  &lt;div class="progress-bar progress-success" style="width: 70%"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- JavaScript API --&gt;
+&lt;script&gt;
+// Animate progress bar
+PaperProgress.animate('#progress', 75, 2000);
+
+// With callback after completion
+PaperProgress.animate('#progress', 100, 1500, () =&gt; {
+  console.log('Progress complete!');
+});
+&lt;/script&gt;</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Additional Components -->
+    <section id="extras" class="demo-section">
+      <h2 data-reveal="fade-up">➕ Additional Components</h2>
+      <div class="section-intro" data-reveal="fade-in">
+        Extra interactive components for enhanced user experience - tooltips, alerts, loading states, and more.
+      </div>
+      
+      <div class="grid cols-1 gap-6">
+        <!-- Tooltip System -->
+        <div class="demo-component" data-reveal="slide-left">
+          <div class="demo-header">
+            <h3 class="demo-title">Tooltip System</h3>
+            <button class="code-hint-btn" data-open-label="{ } Show code" data-close-label="✕ Hide code" onclick="toggleCodeHint(this)">{ } Show code</button>
+          </div>
+          
+          <div class="card">
+            <p>Contextual tooltips displayed on hover or keyboard focus.</p>
+            <div class="mb-4">
+              <h4 class="mb-3">Basic tooltips</h4>
+              <div class="flex gap-4 flex-wrap items-center">
+                <button class="btn btn-primary" data-tooltip="Main button - click to perform action">
+                  Primary Button
+                </button>
+                <button class="btn btn-success btn-sm" data-tooltip="Operation completed successfully">
+                  ✓ Success
+                </button>
+                <button class="btn btn-warning btn-sm" data-tooltip="Warning! This operation requires confirmation">
+                  ⚠ Warning
+                </button>
+                <button class="btn btn-danger btn-sm" data-tooltip="Delete element - cannot be undone">
+                  🗑 Delete
+                </button>
+              </div>
+            </div>
+            
+            <div class="mb-4">
+              <h4 class="mb-3">Other elements with tooltips</h4>
+              <div class="flex gap-4 flex-wrap items-center">
+                <span class="badge" data-tooltip="Status: New element in system">New</span>
+                <span class="badge-outline" data-tooltip="Category: Information for user">Info</span>
+                <a href="#" class="btn btn-ghost" data-tooltip="Go to documentation">📚 Documentation</a>
+                <code data-tooltip="CSS class for styling cards">.card</code>
+              </div>
+            </div>
+            
+            <div class="alert alert-info">
+              <strong>Tip:</strong> Tooltips work on both mouse hover and keyboard focus (Tab). 
+              They automatically position themselves to stay visible on screen.
+            </div>
+          </div>
+          
+          <div class="code-hint">
+            <div class="code-hint-title">💡 Tooltip System - usage example:</div>
+            <pre><code>&lt;!-- Basic tooltips --&gt;
+&lt;button class="btn btn-primary" data-tooltip="Main action button"&gt;
+  Primary Button
+&lt;/button&gt;
+&lt;button class="btn btn-success" data-tooltip="Operation successful"&gt;
+  ✓ Success
+&lt;/button&gt;
+
+&lt;!-- Tooltips on other elements --&gt;
+&lt;span class="badge" data-tooltip="Status information"&gt;New&lt;/span&gt;
+&lt;code data-tooltip="CSS class description"&gt;.card&lt;/code&gt;
+&lt;a href="#" data-tooltip="Link description"&gt;Link text&lt;/a&gt;
+
+&lt;!-- Icon buttons with tooltips --&gt;
+&lt;button class="btn btn-outline" data-tooltip="Application settings"&gt;
+  ⚙️
+&lt;/button&gt;
+&lt;button class="btn btn-outline" data-tooltip="User profile"&gt;
+  👤
+&lt;/button&gt;
+&lt;button class="btn btn-outline" data-tooltip="Notifications"&gt;
+  🔔
+&lt;/button&gt;
+
+&lt;!-- Automatic positioning and keyboard support included --&gt;</code></pre>
+          </div>
+        </div>
+
+        <!-- Alert/Banner System -->
+        <div class="demo-component" data-reveal="slide-right">
+          <div class="demo-header">
+            <h3 class="demo-title">Alert/Banner System</h3>
+            <button class="code-hint-btn" data-open-label="{ } Show code" data-close-label="✕ Hide code" onclick="toggleCodeHint(this)">{ } Show code</button>
+          </div>
+          
+          <div class="card">
+            <p>Static and dynamic alert components for user notifications.</p>
+            
+            <!-- Container for dynamic alerts -->
+            <div id="dynamic-alerts-container-en" class="mb-4" style="min-height: 2rem;">
+              <!-- Dynamic alerts will appear here -->
+            </div>
+            
+            <div class="alert alert-info alert-dismissible">
+              <strong>Info:</strong> This is an informational alert with close option.
+              <button class="alert-close">&times;</button>
+            </div>
+            <div class="alert alert-success">
+              <strong>Success:</strong> Operation completed successfully.
+            </div>
+            <div class="alert alert-warning alert-dismissible">
+              <strong>Warning:</strong> Please check your input data.
+              <button class="alert-close">&times;</button>
+            </div>
+            <div class="alert alert-error alert-dismissible">
+              <strong>Error:</strong> Processing problem occurred.
+              <button class="alert-close">&times;</button>
+            </div>
+            
+            <div class="flex gap-2 flex-wrap">
+              <button class="btn btn-primary" onclick="showDynamicAlertEN('Dynamic alert!', 'info', true)">
+                Add Info Alert
+              </button>
+              <button class="btn btn-success" onclick="showDynamicAlertEN('Operation successful!', 'success', true)">
+                Add Success Alert
+              </button>
+              <button class="btn btn-warning" onclick="showDynamicAlertEN('Pay attention!', 'warning', true)">
+                Add Warning Alert
+              </button>
+              <button class="btn btn-danger" onclick="showDynamicAlertEN('Error occurred!', 'error', true)">
+                Add Error Alert
+              </button>
+            </div>
+          </div>
+          
+          <div class="code-hint">
+            <div class="code-hint-title">💡 Alert/Banner System - usage example:</div>
+            <pre><code>&lt;!-- Static alerts --&gt;
+&lt;div class="alert alert-info"&gt;
+  &lt;strong&gt;Info:&lt;/strong&gt; Informational message.
+&lt;/div&gt;
+&lt;div class="alert alert-success"&gt;
+  &lt;strong&gt;Success:&lt;/strong&gt; Operation successful.
+&lt;/div&gt;
+&lt;div class="alert alert-warning"&gt;
+  &lt;strong&gt;Warning:&lt;/strong&gt; Check your input.
+&lt;/div&gt;
+&lt;div class="alert alert-error"&gt;
+  &lt;strong&gt;Error:&lt;/strong&gt; Something went wrong.
+&lt;/div&gt;
+
+&lt;!-- Dismissible alerts --&gt;
+&lt;div class="alert alert-info alert-dismissible"&gt;
+  &lt;strong&gt;Info:&lt;/strong&gt; This alert can be closed.
+  &lt;button class="alert-close"&gt;&amp;times;&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- Dynamic alerts with JavaScript --&gt;
+&lt;script&gt;
+function showDynamicAlert(message, type, dismissible) {
+  const container = document.getElementById('alerts-container');
+  const alert = document.createElement('div');
+  alert.className = `alert alert-${type}${dismissible ? ' alert-dismissible' : ''}`;
+  alert.innerHTML = `
+    &lt;strong&gt;${type.charAt(0).toUpperCase() + type.slice(1)}:&lt;/strong&gt; ${message}
+    ${dismissible ? '&lt;button class="alert-close"&gt;&amp;times;&lt;/button&gt;' : ''}
+  `;
+  container.appendChild(alert);
+}
+&lt;/script&gt;</code></pre>
+          </div>
+        </div>
+
+        <!-- Loading States -->
+        <div class="demo-component" data-reveal="fade-up">
+          <div class="demo-header">
+            <h3 class="demo-title">Loading States</h3>
+            <button class="code-hint-btn" data-open-label="{ } Show code" data-close-label="✕ Hide code" onclick="toggleCodeHint(this)">{ } Show code</button>
+          </div>
+          
+          <div class="card">
+            <p>Various loading states in e-ink style.</p>
+            <div class="flex gap-4 items-center flex-wrap">
+              <div class="loading-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="loading-spinner"></div>
+              <div class="loading-pulse"></div>
+              <span class="text-muted">Loading...</span>
+            </div>
+          </div>
+          
+          <div class="code-hint">
+            <div class="code-hint-title">💡 Loading States - usage example:</div>
+            <pre><code>&lt;!-- Dots loading animation --&gt;
+&lt;div class="loading-dots"&gt;
+  &lt;span&gt;&lt;/span&gt;
+  &lt;span&gt;&lt;/span&gt;
+  &lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- Spinner loading --&gt;
+&lt;div class="loading-spinner"&gt;&lt;/div&gt;
+
+&lt;!-- Pulse loading --&gt;
+&lt;div class="loading-pulse"&gt;&lt;/div&gt;
+
+&lt;!-- Loading text --&gt;
+&lt;span class="text-muted"&gt;Loading...&lt;/span&gt;
+
+&lt;!-- Usage in buttons --&gt;
+&lt;button class="btn" disabled&gt;
+  &lt;div class="loading-dots"&gt;
+    &lt;span&gt;&lt;/span&gt;
+    &lt;span&gt;&lt;/span&gt;
+    &lt;span&gt;&lt;/span&gt;
+  &lt;/div&gt;
+  Loading...
+&lt;/button&gt;</code></pre>
+          </div>
+        </div>
+
+        <!-- Empty State -->
+        <div class="demo-component" data-reveal="slide-left">
+          <div class="demo-header">
+            <h3 class="demo-title">Empty State</h3>
+            <button class="code-hint-btn" data-open-label="{ } Show code" data-close-label="✕ Hide code" onclick="toggleCodeHint(this)">{ } Show code</button>
+          </div>
+          
+          <div class="card">
+            <div class="empty-state">
+              <div class="empty-state-icon">📄</div>
+              <h3>No Data</h3>
+              <p>No items found to display. Add a new item or change your search filters.</p>
+              <button class="btn btn-primary">Add Item</button>
+            </div>
+          </div>
+          
+          <div class="code-hint">
+            <div class="code-hint-title">💡 Empty State - usage example:</div>
+            <pre><code>&lt;!-- Empty state component --&gt;
+&lt;div class="empty-state"&gt;
+  &lt;div class="empty-state-icon"&gt;📄&lt;/div&gt;
+  &lt;h3&gt;No Data&lt;/h3&gt;
+  &lt;p&gt;No items found to display. Add a new item or change your search filters.&lt;/p&gt;
+  &lt;button class="btn btn-primary"&gt;Add Item&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- Different empty states --&gt;
+&lt;div class="empty-state"&gt;
+  &lt;div class="empty-state-icon"&gt;🔍&lt;/div&gt;
+  &lt;h3&gt;No Search Results&lt;/h3&gt;
+  &lt;p&gt;We couldn't find anything matching your search.&lt;/p&gt;
+  &lt;button class="btn btn-outline"&gt;Clear Search&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class="empty-state"&gt;
+  &lt;div class="empty-state-icon"&gt;📋&lt;/div&gt;
+  &lt;h3&gt;No Tasks&lt;/h3&gt;
+  &lt;p&gt;You're all caught up! No tasks to complete.&lt;/p&gt;
+  &lt;button class="btn btn-primary"&gt;Add New Task&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Table -->
+    <section id="table" class="demo-section">
+      <h2 data-reveal="fade-up">📊 Data Tables</h2>
+      <div class="section-intro" data-reveal="fade-in">
+        Responsive tables with paper-style design, pagination, and sorting capabilities.
+      </div>
+      
+      <div class="demo-component" data-reveal="zoom-in">
+        <div class="demo-header">
+          <h3 class="demo-title">Data Table with Actions</h3>
+          <button class="code-hint-btn" data-open-label="{ } Show code" data-close-label="✕ Hide code" onclick="toggleCodeHint(this)">{ } Show code</button>
+        </div>
+        
+        <div class="card">
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Status</th>
+                  <th>Tag</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>01</td>
+                  <td>Alpha Element</td>
+                  <td><span class="badge">New</span></td>
+                  <td><code>.alpha</code></td>
+                  <td><button class="btn btn-ghost" data-tooltip="Preview">👁</button></td>
+                </tr>
+                <tr>
+                  <td>02</td>
+                  <td>Beta Element</td>
+                  <td><span class="badge-outline">Info</span></td>
+                  <td><code>.beta</code></td>
+                  <td><button class="btn btn-ghost" data-tooltip="Edit">✎</button></td>
+                </tr>
+                <tr>
+                  <td>03</td>
+                  <td>Gamma Element</td>
+                  <td><span class="badge">New</span></td>
+                  <td><code>.gamma</code></td>
+                  <td><button class="btn btn-ghost" data-tooltip="Delete">🗑</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <!-- Pagination -->
+          <nav class="pagination mt-4">
+            <button disabled>&laquo;</button>
+            <button class="active">1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>&raquo;</button>
+          </nav>
+          
+          <!-- Breadcrumb -->
+          <nav class="breadcrumb mt-4" aria-label="breadcrumb">
+            <a href="#">Home</a> <span>/</span>
+            <a href="#">Section</a> <span>/</span>
+            <a href="#">Page</a> <span>/</span>
+            <span>Current</span>
+          </nav>
+        </div>
+        
+        <div class="code-hint">
+          <div class="code-hint-title">💡 Data table with pagination:</div>
+          <pre><code>&lt;!-- Table wrapper for responsiveness --&gt;
+&lt;div class="table-wrapper"&gt;
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;#&lt;/th&gt;
+        &lt;th&gt;Name&lt;/th&gt;
+        &lt;th&gt;Status&lt;/th&gt;
+        &lt;th&gt;Actions&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;01&lt;/td&gt;
+        &lt;td&gt;Element Name&lt;/td&gt;
+        &lt;td&gt;&lt;span class="badge"&gt;New&lt;/span&gt;&lt;/td&gt;
+        &lt;td&gt;
+          &lt;button class="btn btn-ghost" data-tooltip="Preview"&gt;👁&lt;/button&gt;
+          &lt;button class="btn btn-ghost" data-tooltip="Edit"&gt;✎&lt;/button&gt;
+          &lt;button class="btn btn-ghost" data-tooltip="Delete"&gt;🗑&lt;/button&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;!-- Pagination --&gt;
+&lt;nav class="pagination"&gt;
+  &lt;button disabled&gt;&amp;laquo;&lt;/button&gt;
+  &lt;button class="active"&gt;1&lt;/button&gt;
+  &lt;button&gt;2&lt;/button&gt;
+  &lt;button&gt;3&lt;/button&gt;
+  &lt;button&gt;&amp;raquo;&lt;/button&gt;
+&lt;/nav&gt;
+
+&lt;!-- Breadcrumb navigation --&gt;
+&lt;nav class="breadcrumb" aria-label="breadcrumb"&gt;
+  &lt;a href="#"&gt;Home&lt;/a&gt; &lt;span&gt;/&lt;/span&gt;
+  &lt;a href="#"&gt;Section&lt;/a&gt; &lt;span&gt;/&lt;/span&gt;
+  &lt;span&gt;Current&lt;/span&gt;
+&lt;/nav&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Forms -->
+    <section id="forms" class="demo-section">
+      <h2 data-reveal="fade-up">📝 Forms with States</h2>
+      <div class="section-intro" data-reveal="fade-in">
+        Complete form system with validation states, field types, and paper-style inputs.
+      </div>
+      
+      <div class="demo-component" data-reveal="tilt">
+        <div class="demo-header">
+          <h3 class="demo-title">Form with Validation States</h3>
+          <button class="code-hint-btn" data-open-label="{ } Show code" data-close-label="✕ Hide code" onclick="toggleCodeHint(this)">{ } Show code</button>
+        </div>
+        
+        <form class="maxw-md card">
+          <div class="form-group field-success">
+            <label for="f-name-en">First Name</label>
+            <input type="text" id="f-name-en" placeholder="Enter first name" value="John" />
+            <div class="help-text">Looks good!</div>
+          </div>
+          <div class="form-group field-warning">
+            <label for="f-email-en">Email</label>
+            <input type="email" id="f-email-en" placeholder="name@example.com" />
+            <div class="help-text">Please check the format.</div>
+          </div>
+          <div class="form-group field-danger">
+            <label for="f-pass-en">Password</label>
+            <input type="password" id="f-pass-en" />
+            <div class="help-text">Too short.</div>
+          </div>
+          <div class="form-group field-info">
+            <label for="f-role-en">Role</label>
+            <select id="f-role-en">
+              <option>Choose...</option>
+              <option>Admin</option>
+              <option>User</option>
+            </select>
+            <div class="help-text">Select user role.</div>
+          </div>
+          <div class="form-group">
+            <label for="f-msg-en">Message</label>
+            <textarea id="f-msg-en" rows="4" placeholder="Optional message..."></textarea>
+            <div class="help-text">Optional field.</div>
+          </div>
+          <div class="form-group input-inline">
+            <div>
+              <label for="f-inline1-en">Inline 1</label>
+              <input type="text" id="f-inline1-en" />
+            </div>
+            <div>
+              <label for="f-inline2-en">Inline 2</label>
+              <input type="text" id="f-inline2-en" />
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn btn-submit demo-submit">Submit</button>
+            <button type="reset" class="btn btn-outline">Reset</button>
+          </div>
+        </form>
+        
+        <div class="code-hint">
+          <div class="code-hint-title">💡 Forms with validation states:</div>
+          <pre><code>&lt;form class="maxw-md"&gt;
+  &lt;!-- Success state --&gt;
+  &lt;div class="form-group field-success"&gt;
+    &lt;label for="name"&gt;First Name&lt;/label&gt;
+    &lt;input type="text" id="name" placeholder="Enter name" /&gt;
+    &lt;div class="help-text"&gt;Looks good!&lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;!-- Warning state --&gt;
+  &lt;div class="form-group field-warning"&gt;
+    &lt;label for="email"&gt;Email&lt;/label&gt;
+    &lt;input type="email" id="email" /&gt;
+    &lt;div class="help-text"&gt;Check format.&lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;!-- Error state --&gt;
+  &lt;div class="form-group field-danger"&gt;
+    &lt;label for="password"&gt;Password&lt;/label&gt;
+    &lt;input type="password" id="password" /&gt;
+    &lt;div class="help-text"&gt;Too short.&lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;!-- Select with info state --&gt;
+  &lt;div class="form-group field-info"&gt;
+    &lt;label for="role"&gt;Role&lt;/label&gt;
+    &lt;select id="role"&gt;
+      &lt;option&gt;Choose...&lt;/option&gt;
+      &lt;option&gt;Admin&lt;/option&gt;
+      &lt;option&gt;User&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;div class="help-text"&gt;Select role.&lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;!-- Textarea --&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label for="message"&gt;Message&lt;/label&gt;
+    &lt;textarea id="message" rows="4"&gt;&lt;/textarea&gt;
+    &lt;div class="help-text"&gt;Optional.&lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;!-- Inline fields --&gt;
+  &lt;div class="form-group input-inline"&gt;
+    &lt;div&gt;
+      &lt;label for="inline1"&gt;Field 1&lt;/label&gt;
+      &lt;input type="text" id="inline1" /&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;label for="inline2"&gt;Field 2&lt;/label&gt;
+      &lt;input type="text" id="inline2" /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="form-actions"&gt;
+    &lt;button type="submit" class="btn"&gt;Submit&lt;/button&gt;
+    &lt;button type="reset" class="btn btn-outline"&gt;Reset&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/form&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
     <section id="theme" class="demo-section">
       <h2 data-reveal="fade-up">Theme & Dark Mode</h2>
       <p data-reveal>Toggle <code>data-theme="dark"</code> on <code>&lt;html&gt;</code>. Persistence via localStorage recommended.</p>
@@ -288,6 +1111,28 @@ document.getElementById('themeToggle').addEventListener('click', () => {
 
   </main>
 
+  <!-- Offcanvas structure -->
+  <div class="offcanvas-backdrop" id="demo-offcanvas-backdrop">
+    <div class="offcanvas" id="demo-offcanvas">
+      <div class="offcanvas-header">
+        <h3>Side Panel</h3>
+        <button class="offcanvas-close btn-ghost">&times;</button>
+      </div>
+      <div class="offcanvas-body">
+        <p>This is the side panel content with authentic paper screen appearance.</p>
+        <ul>
+          <li>Option 1</li>
+          <li>Option 2</li>
+          <li>Option 3</li>
+        </ul>
+        <div class="mt-4">
+          <button class="btn btn-primary">Save</button>
+          <button class="btn btn-outline">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="container flex flex-col gap-2">
@@ -321,5 +1166,37 @@ document.getElementById('themeToggle').addEventListener('click', () => {
 
   <script src="paper.js"></script>
   <script src="demo.js"></script>
+  <script>
+    // English demo specific functions
+    function animateProgressBarsEN() {
+      PaperProgress.animate('#progress1-en', 75, 2000);
+      PaperProgress.animate('#progress3-en', 90, 2500);
+      PaperProgress.animate('#progress4-en', 60, 1500);
+    }
+    
+    function resetProgressBarsEN() {
+      document.getElementById('progress1-en').style.width = '0%';
+      document.getElementById('progress3-en').style.width = '0%';
+      document.getElementById('progress4-en').style.width = '0%';
+    }
+    
+    function showDynamicAlertEN(message, type, dismissible) {
+      const container = document.getElementById('dynamic-alerts-container-en');
+      const alert = document.createElement('div');
+      alert.className = `alert alert-${type}${dismissible ? ' alert-dismissible' : ''}`;
+      alert.innerHTML = `
+        <strong>${type.charAt(0).toUpperCase() + type.slice(1)}:</strong> ${message}
+        ${dismissible ? '<button class="alert-close">&times;</button>' : ''}
+      `;
+      container.appendChild(alert);
+      
+      // Auto-remove after 5 seconds
+      setTimeout(() => {
+        if (alert && alert.parentNode) {
+          alert.remove();
+        }
+      }, 5000);
+    }
+  </script>
 </body>
 </html>
