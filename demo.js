@@ -81,34 +81,34 @@ function animateProgressWithLabel(selector, labelSelector, target, duration) {
 
 // System podpowiedzi kodu
 function toggleCodeHint(button) {
-  const codeHint = button.closest('.demo-component').querySelector('.code-hint');
+  const container = button.closest('.demo-component');
+  if(!container) return;
+  const codeHint = container.querySelector('.code-hint');
+  if(!codeHint) return;
   const isVisible = codeHint.classList.contains('show');
-  
-  // Zamknij wszystkie inne podpowiedzi
-  document.querySelectorAll('.code-hint.show').forEach(hint => {
-    hint.classList.remove('show');
-  });
-  
+
+  const openLabelDefault = '{ } Pokaż kod';
+  const closeLabelDefault = '✕ Ukryj kod';
+  const openLabel = button.getAttribute('data-open-label') || openLabelDefault;
+  const closeLabel = button.getAttribute('data-close-label') || closeLabelDefault;
+
+  // Close all others
+  document.querySelectorAll('.code-hint.show').forEach(hint => hint.classList.remove('show'));
   document.querySelectorAll('.code-hint-btn').forEach(btn => {
-    btn.textContent = '{ } Pokaż kod';
+    const lbl = btn.getAttribute('data-open-label') || openLabelDefault;
+    btn.textContent = lbl;
     btn.style.background = 'var(--paper-highlight)';
     btn.style.color = 'var(--paper-ink)';
   });
-  
-  // Toggle aktualną podpowiedź
-  if (!isVisible) {
+
+  if(!isVisible) {
     codeHint.classList.add('show');
-    button.textContent = '✕ Ukryj kod';
+    button.textContent = closeLabel;
     button.style.background = 'var(--paper-accent)';
     button.style.color = 'white';
-    
-    // Płynne przewinięcie do kodu
     setTimeout(() => {
-      codeHint.scrollIntoView({ 
-        behavior: 'smooth', 
-        block: 'nearest' 
-      });
-    }, 100);
+      codeHint.scrollIntoView({behavior:'smooth', block:'nearest'});
+    }, 80);
   }
 }
 

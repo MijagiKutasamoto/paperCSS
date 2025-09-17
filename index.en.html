@@ -34,6 +34,7 @@
       <a href="#theme">Theme</a>
     </div>
     <button class="theme-toggle" data-theme-toggle title="Toggle theme">🌓 <span data-theme-label>Dark</span></button>
+    <a href="index.html" class="btn btn-sm btn-outline lang-switch" lang="pl" hreflang="pl" title="Przełącz na wersję polską">PL</a>
   </nav>
 
   <!-- Hero -->
@@ -231,6 +232,48 @@
     <section id="theme" class="demo-section">
       <h2 data-reveal="fade-up">Theme & Dark Mode</h2>
       <p data-reveal>Toggle <code>data-theme="dark"</code> on <code>&lt;html&gt;</code>. Persistence via localStorage recommended.</p>
+      <div class="demo-component" data-reveal="fade-in">
+        <div class="demo-header">
+          <h3 class="demo-title">Theme Setup</h3>
+          <button class="code-hint-btn" data-open-label="{ } Theme code" data-close-label="✕ Hide code" onclick="toggleCodeHint(this)">{ } Theme code</button>
+        </div>
+        <div class="card">
+          <p class="text-muted mb-2">JS + CSS snippet for toggle & persistence.</p>
+          <ul class="text-sm text-muted">
+            <li>HTML attribute: <code>&lt;html data-theme="light"&gt;</code></li>
+            <li>JS toggles attribute and stores preference</li>
+            <li>Override tokens before or after import (with specificity)</li>
+          </ul>
+        </div>
+        <div class="code-hint">
+          <div class="code-hint-title">💡 Full theme example:</div>
+          <pre><code><!-- HTML -->
+&lt;html lang="en" data-theme="light"&gt;
+...
+&lt;button id="themeToggle" class="btn btn-sm"&gt;Toggle theme&lt;/button&gt;
+
+/* CSS overrides */
+:root {
+  --paper-accent: #346cab;
+  --paper-accent-hover: #3e79bd;
+}
+[data-theme="dark"] {
+  --paper-bg: #1a1a1a;
+  --paper-ink: #e8e4d9;
+}
+
+// JS persistence
+const root = document.documentElement;
+const saved = localStorage.getItem('theme');
+if (saved) root.setAttribute('data-theme', saved);
+document.getElementById('themeToggle').addEventListener('click', () => {
+  const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  root.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  PaperToast.show(`Theme: ${next}`, { title: 'Theme' });
+});</code></pre>
+        </div>
+      </div>
       <div class="grid cols-2 gap-4">
         <div class="card" data-reveal="tilt">
           <h3>Override variables</h3>

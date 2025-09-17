@@ -34,6 +34,8 @@
       <a href="#motyw">Motyw</a>
     </div>
     <button class="theme-toggle" data-theme-toggle title="Przełącz motyw">🌓 <span data-theme-label>Ciemny</span></button>
+    <a href="index.en.html" class="btn btn-sm btn-outline lang-switch" lang="en" hreflang="en" title="Przełącz na wersję angielską">EN</a>
+
   </nav>
 
   <!-- Hero -->
@@ -629,6 +631,48 @@ PaperToast.error('Błąd!');
         wybór w <code>localStorage</code>. Wszystkie komponenty, w tym toasty, automatycznie
         dostosowują się do motywu papierowego.
       </p>
+      <div class="demo-component" data-reveal="fade-in">
+        <div class="demo-header">
+          <h3 class="demo-title">Konfiguracja motywu</h3>
+          <button class="code-hint-btn" data-open-label="{ } Kod motywu" data-close-label="✕ Ukryj kod" onclick="toggleCodeHint(this)">{ } Kod motywu</button>
+        </div>
+        <div class="card">
+          <p class="text-muted mb-2">Przykład JS + CSS do przełączania i zapisywania motywu.</p>
+          <ul class="text-sm text-muted">
+            <li>HTML atrybut: <code>&lt;html data-theme="light"&gt;</code></li>
+            <li>JS przełącza klasę / atrybut i zapisuje preferencję</li>
+            <li>Nadpisanie zmiennych poprzedza import stylów (lub ma większą specyficzność)</li>
+          </ul>
+        </div>
+        <div class="code-hint">
+          <div class="code-hint-title">💡 Motyw – pełny przykład:</div>
+          <pre><code><!-- HTML -->
+&lt;html lang="pl" data-theme="light"&gt;
+...
+&lt;button id="themeToggle" class="btn btn-sm"&gt;Przełącz motyw&lt;/button&gt;
+
+/* CSS (nadpisanie tokenów) */
+:root {
+  --paper-accent: #346cab;
+  --paper-accent-hover: #3e79bd;
+}
+[data-theme="dark"] {
+  --paper-bg: #1a1a1a;
+  --paper-ink: #e8e4d9;
+}
+
+// JS (persistencja)
+const root = document.documentElement;
+const saved = localStorage.getItem('theme');
+if (saved) root.setAttribute('data-theme', saved);
+document.getElementById('themeToggle').addEventListener('click', () => {
+  const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  root.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  PaperToast.show(`Motyw: ${next}`, { title: 'Theme' });
+});</code></pre>
+        </div>
+      </div>
       
       <div class="grid cols-2 gap-4">
         <div class="card" data-reveal="tilt">
