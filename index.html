@@ -31,6 +31,7 @@
       <a href="#tabela">Tabele</a>
       <a href="#nowe">Nowe</a>
       <a href="#dodatkowe">Dodatkowe</a>
+      <a href="#przydatne">Przydatne</a>
       <a href="#motyw">Motyw</a>
     </div>
     <button class="theme-toggle" data-theme-toggle title="Przełącz motyw">🌓 <span data-theme-label>Ciemny</span></button>
@@ -621,6 +622,457 @@ PaperToast.error('Błąd!');
         <code>.open</code>. Użyj atrybutu <code>data-open-modal="id"</code>.
       </p>
       <button class="btn" data-open-modal="welcomeModal" data-reveal="zoom-in">Otwórz modal</button>
+    </section>
+
+    <!-- Przydatne komponenty -->
+    <section id="przydatne" class="demo-section">
+      <h2 data-reveal="fade-up">🔧 Przydatne Komponenty</h2>
+      <div class="section-intro" data-reveal="fade-in">
+        Nowoczesne komponenty UI znacznie ułatwiające tworzenie aplikacji – toggle switches, timeline, date picker i więcej.
+      </div>
+      
+      <div class="grid cols-1 gap-6">
+        <!-- Toggle Switches -->
+        <div class="demo-component" data-reveal="slide-left">
+          <div class="demo-header">
+            <h3 class="demo-title">Toggle Switches</h3>
+            <button class="code-hint-btn" data-open-label="{ } Pokaż kod" data-close-label="✕ Ukryj kod" onclick="toggleCodeHint(this)">{ } Pokaż kod</button>
+          </div>
+          
+          <div class="card">
+            <p>Nowoczesne przełączniki w stylu paper z animacjami.</p>
+            
+            <div class="mb-4">
+              <h4 class="mb-3">Podstawowe przełączniki</h4>
+              
+              <div class="flex gap-4 flex-wrap items-center mb-3">
+                <label class="switch">
+                  <input type="checkbox" checked>
+                  <span class="switch-slider"></span>
+                </label>
+                <span>Standardowy (włączony)</span>
+              </div>
+              
+              <div class="flex gap-4 flex-wrap items-center mb-3">
+                <label class="switch">
+                  <input type="checkbox">
+                  <span class="switch-slider"></span>
+                </label>
+                <span>Standardowy (wyłączony)</span>
+              </div>
+              
+              <div class="flex gap-4 flex-wrap items-center mb-3">
+                <label class="switch switch-success">
+                  <input type="checkbox" checked>
+                  <span class="switch-slider"></span>
+                </label>
+                <span>Sukces</span>
+              </div>
+              
+              <div class="flex gap-4 flex-wrap items-center mb-3">
+                <label class="switch switch-warning">
+                  <input type="checkbox" checked>
+                  <span class="switch-slider"></span>
+                </label>
+                <span>Ostrzeżenie</span>
+              </div>
+              
+              <div class="flex gap-4 flex-wrap items-center">
+                <label class="switch switch-danger">
+                  <input type="checkbox" checked>
+                  <span class="switch-slider"></span>
+                </label>
+                <span>Błąd</span>
+              </div>
+            </div>
+            
+            <div class="mb-4">
+              <h4 class="mb-3">Rozmiary</h4>
+              <div class="flex gap-4 flex-wrap items-center">
+                <label class="switch switch-sm">
+                  <input type="checkbox" checked>
+                  <span class="switch-slider"></span>
+                </label>
+                <label class="switch">
+                  <input type="checkbox" checked>
+                  <span class="switch-slider"></span>
+                </label>
+                <label class="switch switch-lg">
+                  <input type="checkbox" checked>
+                  <span class="switch-slider"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+          
+          <div class="code-hint">
+            <div class="code-hint-title">💡 Toggle Switches - przykład użycia:</div>
+            <pre><code>&lt;!-- Podstawowy przełącznik --&gt;
+&lt;label class="switch"&gt;
+  &lt;input type="checkbox"&gt;
+  &lt;span class="switch-slider"&gt;&lt;/span&gt;
+&lt;/label&gt;
+
+&lt;!-- Warianty kolorystyczne --&gt;
+&lt;label class="switch switch-success"&gt;
+  &lt;input type="checkbox" checked&gt;
+  &lt;span class="switch-slider"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;label class="switch switch-warning"&gt;
+  &lt;input type="checkbox" checked&gt;
+  &lt;span class="switch-slider"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;label class="switch switch-danger"&gt;
+  &lt;input type="checkbox" checked&gt;
+  &lt;span class="switch-slider"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;label class="switch switch-info"&gt;
+  &lt;input type="checkbox" checked&gt;
+  &lt;span class="switch-slider"&gt;&lt;/span&gt;
+&lt;/label&gt;
+
+&lt;!-- Różne rozmiary --&gt;
+&lt;label class="switch switch-sm"&gt;
+  &lt;input type="checkbox"&gt;
+  &lt;span class="switch-slider"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;label class="switch switch-lg"&gt;
+  &lt;input type="checkbox"&gt;
+  &lt;span class="switch-slider"&gt;&lt;/span&gt;
+&lt;/label&gt;
+
+&lt;!-- Wyłączony --&gt;
+&lt;label class="switch"&gt;
+  &lt;input type="checkbox" disabled&gt;
+  &lt;span class="switch-slider"&gt;&lt;/span&gt;
+&lt;/label&gt;</code></pre>
+          </div>
+        </div>
+
+        <!-- Timeline Component -->
+        <div class="demo-component" data-reveal="slide-right">
+          <div class="demo-header">
+            <h3 class="demo-title">Timeline</h3>
+            <button class="code-hint-btn" data-open-label="{ } Pokaż kod" data-close-label="✕ Ukryj kod" onclick="toggleCodeHint(this)">{ } Pokaż kod</button>
+          </div>
+          
+          <div class="card">
+            <p>Oś czasu w stylu papierowym do prezentacji chronologicznej.</p>
+            
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-header">
+                  <div class="timeline-title">Pierwsza wersja framework</div>
+                  <div class="timeline-date">Styczeń 2024</div>
+                </div>
+                <div class="timeline-content">
+                  Uruchomienie podstawowej wersji PaperCSS z systemem komponentów.
+                </div>
+              </div>
+              
+              <div class="timeline-item timeline-success">
+                <div class="timeline-header">
+                  <div class="timeline-title">Dodano tryb ciemny</div>
+                  <div class="timeline-date">Marzec 2024</div>
+                </div>
+                <div class="timeline-content">
+                  Implementacja automatycznego przełączania między trybem jasnym a ciemnym.
+                </div>
+              </div>
+              
+              <div class="timeline-item timeline-info">
+                <div class="timeline-header">
+                  <div class="timeline-title">Nowe komponenty</div>
+                  <div class="timeline-date">Wrzesień 2024</div>
+                </div>
+                <div class="timeline-content">
+                  Dodanie zaawansowanych komponentów: toggle switches, timeline, date picker.
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="code-hint">
+            <div class="code-hint-title">💡 Timeline - przykład użycia:</div>
+            <pre><code>&lt;div class="timeline"&gt;
+  &lt;div class="timeline-item"&gt;
+    &lt;div class="timeline-header"&gt;
+      &lt;div class="timeline-title"&gt;Tytuł wydarzenia&lt;/div&gt;
+      &lt;div class="timeline-date"&gt;Styczeń 2024&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="timeline-content"&gt;
+      Opis wydarzenia w osi czasu.
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="timeline-item timeline-success"&gt;
+    &lt;div class="timeline-header"&gt;
+      &lt;div class="timeline-title"&gt;Sukces&lt;/div&gt;
+      &lt;div class="timeline-date"&gt;Marzec 2024&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="timeline-content"&gt;
+      Pozytywne wydarzenie.
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="timeline-item timeline-warning"&gt;
+    &lt;div class="timeline-header"&gt;
+      &lt;div class="timeline-title"&gt;Ostrzeżenie&lt;/div&gt;
+      &lt;div class="timeline-date"&gt;Kwiecień 2024&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="timeline-content"&gt;
+      Wydarzenie wymagające uwagi.
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="timeline-item timeline-danger"&gt;
+    &lt;div class="timeline-header"&gt;
+      &lt;div class="timeline-title"&gt;Problem&lt;/div&gt;
+      &lt;div class="timeline-date"&gt;Maj 2024&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="timeline-content"&gt;
+      Krytyczne wydarzenie.
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </div>
+
+        <!-- Date Picker -->
+        <div class="demo-component" data-reveal="zoom-in">
+          <div class="demo-header">
+            <h3 class="demo-title">Date Picker</h3>
+            <button class="code-hint-btn" data-open-label="{ } Pokaż kod" data-close-label="✕ Ukryj kod" onclick="toggleCodeHint(this)">{ } Pokaż kod</button>
+          </div>
+          
+          <div class="card">
+            <p>Picker dat w stylu papierowym z kalendarzem.</p>
+            
+            <div class="mb-4">
+              <label for="date-example" class="form-label">Wybierz datę:</label>
+              <div class="date-picker">
+                <input type="text" class="date-picker-input" id="date-example" placeholder="Kliknij aby wybrać datę" readonly>
+                <div class="date-picker-calendar" id="calendar-example">
+                  <div class="date-picker-header">
+                    <button class="date-picker-nav" data-action="prev">‹</button>
+                    <div class="date-picker-month">Wrzesień 2024</div>
+                    <button class="date-picker-nav" data-action="next">›</button>
+                  </div>
+                  <div class="date-picker-grid">
+                    <div class="date-picker-weekday">Pn</div>
+                    <div class="date-picker-weekday">Wt</div>
+                    <div class="date-picker-weekday">Śr</div>
+                    <div class="date-picker-weekday">Cz</div>
+                    <div class="date-picker-weekday">Pt</div>
+                    <div class="date-picker-weekday">So</div>
+                    <div class="date-picker-weekday">Nd</div>
+                    <!-- Dni będą wygenerowane przez JavaScript -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="alert alert-info">
+              <strong>Demo:</strong> To jest w pełni funkcjonalny date picker! Kliknij w pole powyżej, nawiguj między miesiącami i wybieraj daty.
+            </div>
+          </div>
+          
+          <div class="code-hint">
+            <div class="code-hint-title">💡 Date Picker - przykład użycia:</div>
+            <pre><code>&lt;div class="date-picker"&gt;
+  &lt;input type="text" class="date-picker-input" placeholder="Wybierz datę" readonly&gt;
+  &lt;div class="date-picker-calendar"&gt;
+    &lt;div class="date-picker-header"&gt;
+      &lt;button class="date-picker-nav" data-action="prev"&gt;‹&lt;/button&gt;
+      &lt;div class="date-picker-month"&gt;&lt;/div&gt;
+      &lt;button class="date-picker-nav" data-action="next"&gt;›&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="date-picker-grid"&gt;
+      &lt;div class="date-picker-weekday"&gt;Pn&lt;/div&gt;
+      &lt;div class="date-picker-weekday"&gt;Wt&lt;/div&gt;
+      &lt;div class="date-picker-weekday"&gt;Śr&lt;/div&gt;
+      &lt;div class="date-picker-weekday"&gt;Cz&lt;/div&gt;
+      &lt;div class="date-picker-weekday"&gt;Pt&lt;/div&gt;
+      &lt;div class="date-picker-weekday"&gt;So&lt;/div&gt;
+      &lt;div class="date-picker-weekday"&gt;Nd&lt;/div&gt;
+      &lt;!-- Dni generowane przez JavaScript --&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Dołącz JavaScript --&gt;
+&lt;script src="datepicker.js"&gt;&lt;/script&gt;
+
+&lt;!-- Automatyczna inicjalizacja - wszystkie .date-picker zostaną aktywne --&gt;
+&lt;!-- Lub ręczna inicjalizacja: --&gt;
+&lt;script&gt;
+// Podstawowe użycie
+const picker1 = new PaperDatePicker('#date-input');
+
+// Z opcjami
+const picker2 = new PaperDatePicker('#date-input-2', {
+  format: 'DD.MM.YYYY',
+  minDate: new Date(),
+  maxDate: new Date(2025, 11, 31),
+  onSelect: function(date) {
+    console.log('Wybrano datę:', date);
+  }
+});
+
+// Ustawienie daty programowo
+picker1.setDate(new Date());
+
+// Pobranie wybranej daty
+console.log(picker1.getDate());
+&lt;/script&gt;</code></pre>
+          </div>
+        </div>
+
+        <!-- Sidebar Navigation -->
+        <div class="demo-component" data-reveal="tilt">
+          <div class="demo-header">
+            <h3 class="demo-title">Sidebar Navigation</h3>
+            <button class="code-hint-btn" data-open-label="{ } Pokaż kod" data-close-label="✕ Ukryj kod" onclick="toggleCodeHint(this)">{ } Pokaż kod</button>
+          </div>
+          
+          <div class="card">
+            <p>Boczny panel nawigacyjny z animacjami i grupowaniem.</p>
+            
+            <div class="mb-4">
+              <button class="btn btn-primary" onclick="document.getElementById('demo-sidebar').classList.add('open'); document.getElementById('demo-sidebar-overlay').classList.add('open')">
+                Otwórz Sidebar
+              </button>
+            </div>
+            
+            <div class="alert alert-info">
+              <strong>Demo:</strong> Kliknij przycisk powyżej aby zobaczyć sidebar w akcji. Panel pojawi się z lewej strony ekranu z efektem przesunięcia.
+            </div>
+          </div>
+          
+          <div class="code-hint">
+            <div class="code-hint-title">💡 Sidebar Navigation - przykład użycia:</div>
+            <pre><code>&lt;!-- Przycisk otwierania --&gt;
+&lt;button onclick="openSidebar()"&gt;Otwórz menu&lt;/button&gt;
+
+&lt;!-- Struktura sidebar --&gt;
+&lt;div class="sidebar-overlay" id="sidebar-overlay"&gt;&lt;/div&gt;
+&lt;div class="sidebar" id="sidebar"&gt;
+  &lt;div class="sidebar-header"&gt;
+    &lt;h3 class="sidebar-title"&gt;Menu&lt;/h3&gt;
+  &lt;/div&gt;
+  
+  &lt;nav class="sidebar-nav"&gt;
+    &lt;div class="sidebar-nav-group"&gt;
+      &lt;div class="sidebar-nav-group-title"&gt;Główne&lt;/div&gt;
+      &lt;a href="#" class="sidebar-nav-item active"&gt;Dashboard&lt;/a&gt;
+      &lt;a href="#" class="sidebar-nav-item"&gt;Projekty&lt;/a&gt;
+      &lt;a href="#" class="sidebar-nav-item"&gt;Zadania&lt;/a&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="sidebar-nav-group"&gt;
+      &lt;div class="sidebar-nav-group-title"&gt;Ustawienia&lt;/div&gt;
+      &lt;a href="#" class="sidebar-nav-item"&gt;Profil&lt;/a&gt;
+      &lt;a href="#" class="sidebar-nav-item"&gt;Preferencje&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/nav&gt;
+&lt;/div&gt;
+
+&lt;!-- JavaScript --&gt;
+&lt;script&gt;
+function openSidebar() {
+  document.getElementById('sidebar').classList.add('open');
+  document.getElementById('sidebar-overlay').classList.add('open');
+}
+
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('sidebar-overlay').classList.remove('open');
+}
+
+// Zamknij po kliknięciu w overlay
+document.getElementById('sidebar-overlay').addEventListener('click', closeSidebar);
+&lt;/script&gt;</code></pre>
+          </div>
+        </div>
+
+        <!-- Advanced Grid -->
+        <div class="demo-component" data-reveal="fade-up">
+          <div class="demo-header">
+            <h3 class="demo-title">Zaawansowany Grid System</h3>
+            <button class="code-hint-btn" data-open-label="{ } Pokaż kod" data-close-label="✕ Ukryj kod" onclick="toggleCodeHint(this)">{ } Pokaż kod</button>
+          </div>
+          
+          <div class="card">
+            <p>Rozszerzony system grid z większymi możliwościami layoutu.</p>
+            
+            <div class="mb-4">
+              <h4 class="mb-3">Grid z różnymi kolumnami</h4>
+              <div class="grid grid-3 gap-3 mb-4">
+                <div class="card p-3 text-center">1</div>
+                <div class="card p-3 text-center">2</div>
+                <div class="card p-3 text-center">3</div>
+              </div>
+              
+              <div class="grid grid-4 gap-2 mb-4">
+                <div class="card p-2 text-center">A</div>
+                <div class="card p-2 text-center">B</div>
+                <div class="card p-2 text-center">C</div>
+                <div class="card p-2 text-center">D</div>
+              </div>
+            </div>
+            
+            <div class="mb-4">
+              <h4 class="mb-3">Span kolumn</h4>
+              <div class="grid grid-6 gap-2">
+                <div class="card p-3 text-center col-span-2">span 2</div>
+                <div class="card p-3 text-center col-span-3">span 3</div>
+                <div class="card p-3 text-center">1</div>
+                <div class="card p-3 text-center col-span-full">span full</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="code-hint">
+            <div class="code-hint-title">💡 Advanced Grid System - przykład użycia:</div>
+            <pre><code>&lt;!-- Podstawowe gridy --&gt;
+&lt;div class="grid grid-2 gap-3"&gt;
+  &lt;div&gt;Element 1&lt;/div&gt;
+  &lt;div&gt;Element 2&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="grid grid-3 gap-4"&gt;
+  &lt;div&gt;Element 1&lt;/div&gt;
+  &lt;div&gt;Element 2&lt;/div&gt;
+  &lt;div&gt;Element 3&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Grid z spanowaniem kolumn --&gt;
+&lt;div class="grid grid-6 gap-3"&gt;
+  &lt;div class="col-span-2"&gt;Zajmuje 2 kolumny&lt;/div&gt;
+  &lt;div class="col-span-3"&gt;Zajmuje 3 kolumny&lt;/div&gt;
+  &lt;div&gt;1 kolumna&lt;/div&gt;
+  &lt;div class="col-span-full"&gt;Całą szerokość&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Grid 12-kolumnowy --&gt;
+&lt;div class="grid grid-12 gap-2"&gt;
+  &lt;div class="col-span-4"&gt;4/12&lt;/div&gt;
+  &lt;div class="col-span-8"&gt;8/12&lt;/div&gt;
+  &lt;div class="col-span-6"&gt;6/12&lt;/div&gt;
+  &lt;div class="col-span-6"&gt;6/12&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Pozycjonowanie --&gt;
+&lt;div class="grid grid-4 gap-2"&gt;
+  &lt;div class="col-start-2 col-span-2"&gt;
+    Zaczyna od 2. kolumny, zajmuje 2
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Responsywne - automatycznie dostosowuje się na mniejszych ekranach --&gt;</code></pre>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Motyw -->
@@ -1290,6 +1742,38 @@ PaperProgress.animate('#progress', 100, 1500, () =&gt; {
 
   </main>
 
+  <!-- Demo Sidebar -->
+  <div class="sidebar-overlay" id="demo-sidebar-overlay" onclick="document.getElementById('demo-sidebar').classList.remove('open'); this.classList.remove('open')"></div>
+  <div class="sidebar" id="demo-sidebar">
+    <div class="sidebar-header">
+      <h3 class="sidebar-title">Demo Menu</h3>
+    </div>
+    
+    <nav class="sidebar-nav">
+      <div class="sidebar-nav-group">
+        <div class="sidebar-nav-group-title">Główne</div>
+        <a href="#" class="sidebar-nav-item active">Dashboard</a>
+        <a href="#" class="sidebar-nav-item">Projekty</a>
+        <a href="#" class="sidebar-nav-item">Zadania</a>
+        <a href="#" class="sidebar-nav-item">Kalendarz</a>
+      </div>
+      
+      <div class="sidebar-nav-group">
+        <div class="sidebar-nav-group-title">Zarządzanie</div>
+        <a href="#" class="sidebar-nav-item">Zespół</a>
+        <a href="#" class="sidebar-nav-item">Raporty</a>
+        <a href="#" class="sidebar-nav-item">Analityki</a>
+      </div>
+      
+      <div class="sidebar-nav-group">
+        <div class="sidebar-nav-group-title">Ustawienia</div>
+        <a href="#" class="sidebar-nav-item">Profil</a>
+        <a href="#" class="sidebar-nav-item">Preferencje</a>
+        <a href="#" class="sidebar-nav-item">Pomoc</a>
+      </div>
+    </nav>
+  </div>
+
   <!-- Offcanvas struktura -->
   <div class="offcanvas-backdrop" id="demo-offcanvas-backdrop">
     <div class="offcanvas" id="demo-offcanvas">
@@ -1352,5 +1836,6 @@ PaperProgress.animate('#progress', 100, 1500, () =&gt; {
 
   <script src="paper.js"></script>
   <script src="demo.js"></script>
+  <script src="datepicker.js"></script>
 </body>
 </html>
