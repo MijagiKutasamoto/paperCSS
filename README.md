@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>PaperCSS</h1>
+  <h1>e-inkCSS</h1>
   <p><em>Lightweight “layered paper” mini CSS framework.</em></p>
   <p>
     Utilities • Components • Dark Mode • Accessible • Zero build step
